@@ -1,0 +1,10 @@
+# data, checkpoints and build outputs the scripts create
+*.pt
+*.bin
+*.pkl
+sft.json
+*.png
+run
+matmul
+__pycache__/
+.venv/
