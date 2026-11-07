@@ -11,7 +11,7 @@ instead (as in GRPO) removes that fourth model and works well for whole-response
 
   python ppo.py           # needs chat.pt, reward.pt, sft.json -> chat_ppo.pt
 """
-import copy, json, random, torch, torch.nn.functional as F
+import argparse, copy, json, random, torch, torch.nn.functional as F
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
 from reward import load_reward_model
@@ -19,7 +19,10 @@ from reward import load_reward_model
 device = "mps" if torch.backends.mps.is_available() else "cpu"
 random.seed(0); torch.manual_seed(0)
 P, G = 4, 4                  # prompts per iteration, samples per prompt
-iters, max_new = 150, 200
+p = argparse.ArgumentParser()
+p.add_argument("--iters", type=int, default=150)
+args = p.parse_args()
+iters, max_new = args.iters, 200
 ppo_epochs, clip, kl_coef, lr = 2, 0.2, 0.05, 1e-5
 
 tok = BPETokenizer().load("tok.pkl")

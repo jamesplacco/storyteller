@@ -1,4 +1,4 @@
-import json, random, torch, torch.nn as nn
+import argparse, json, random, torch, torch.nn as nn
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
 
@@ -6,7 +6,10 @@ device = "mps" if torch.backends.mps.is_available() else "cpu"
 random.seed(0); torch.manual_seed(0)
 tok = BPETokenizer().load("tok.pkl")
 EOT = tok.special["<|endoftext|>"]
-B, T, steps = 16, 256, 1500
+p = argparse.ArgumentParser()
+p.add_argument("--steps", type=int, default=1500)
+args = p.parse_args()
+B, T, steps = 16, 256, args.steps
 
 class LoRALinear(nn.Module):
     def __init__(self, base, r=8, alpha=16):
@@ -20,6 +23,7 @@ class LoRALinear(nn.Module):
 
 ck = torch.load("ckpt.pt", map_location=device)
 model = GPT(GPTConfig(**ck["cfg"])).to(device)
+T = min(T, model.cfg.block_size)                   # never longer than the model's context
 model.load_state_dict(ck["model"])
 for p in model.parameters():
     p.requires_grad = False

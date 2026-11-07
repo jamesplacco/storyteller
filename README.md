@@ -1,5 +1,7 @@
 # Storyteller
 
+[![tests](https://github.com/jamesplacco/storyteller/actions/workflows/tests.yml/badge.svg)](https://github.com/jamesplacco/storyteller/actions/workflows/tests.yml)
+
 A complete build of Andrej Karpathy's LLM101n syllabus: a small language model that writes and
 illustrates bedtime stories, built from scratch across 17 chapters. The course site explains each
 file; this folder holds every file in its final, tested form.
@@ -11,10 +13,23 @@ on NVIDIA GPUs.
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install torch numpy datasets fastapi uvicorn pillow
+pip install -r requirements.txt
 ```
 
 TinyStories (about 2 GB) and CIFAR-10 download from Hugging Face the first time a script needs them.
+
+## Check your setup first
+
+```bash
+pip install pytest httpx
+pytest -x -v tests
+```
+
+This runs every chapter's script, in order, at toy scale on synthetic stand-in data: no downloads,
+3 to 10 minutes. Each test checks a claim the course makes, for example that the C engine prints
+exactly what PyTorch prints, that the KV-cache changes nothing but speed, and that hand-written
+ZeRO-1 matches AdamW. On a Mac it also checks that the Apple GPU gives the same answers as the CPU.
+The same suite runs on GitHub on every push.
 
 ## Run order
 
@@ -38,6 +53,7 @@ Each step's output feeds the next. Times are estimates for an M-series Mac.
 | 13 | `python quantize.py` | | seconds |
 | 14 | `python sft.py` | chat.pt | 10 to 30 min |
 | 15 | `python reward.py`, `python ppo.py`, `python dpo.py` | reward.pt, chat_ppo.pt, chat_dpo.pt | 1 to 2 h total |
+| 15 | `python eval.py` | a table comparing every checkpoint | 5 to 10 min |
 | 17 | `python vqvae.py`, `python image_gpt.py`, `python dit.py` | vqvae.pt, image_gpt.pt, dit.pt | 1 to 3 h total |
 | 16 | `uvicorn app:app --port 8000`, then open http://localhost:8000 | | |
 
@@ -46,6 +62,7 @@ set `CKPT=...` to choose. It draws illustrations once `vqvae.pt` and `image_gpt.
 
 ## Notes
 
+- Long scripts take `--steps` (`--iters` for `ppo.py`) if you want a shorter run first.
 - `model.py` already includes Chapter 12's KV-cache. `train.py` is the final version from
   Chapters 7, 9 and 10: `--dtype bf16|fp16`, `--grad_accum N`, and DDP under `torchrun`.
 - On a Mac, the distributed scripts run as CPU processes with the `gloo` backend. On NVIDIA

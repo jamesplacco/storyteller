@@ -1,5 +1,9 @@
-import torch, torch.nn as nn, torch.nn.functional as F
+import argparse, torch, torch.nn as nn, torch.nn.functional as F
 from datasets import load_dataset
+
+p = argparse.ArgumentParser()
+p.add_argument("--steps", type=int, default=5000)
+args = p.parse_args()
 
 device = "mps" if torch.backends.mps.is_available() else "cpu"
 ds = load_dataset("roneneldan/TinyStories", split="train[:20000]")
@@ -31,7 +35,7 @@ class NGramMLP(nn.Module):
 
 model = NGramMLP().to(device)
 opt = torch.optim.AdamW(model.parameters(), lr=3e-3)
-for step in range(5001):
+for step in range(args.steps + 1):
     x, y = get_batch()
     loss = F.cross_entropy(model(x), y)
     opt.zero_grad(); loss.backward(); opt.step()

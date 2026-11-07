@@ -9,7 +9,7 @@ The transformer is Chapter 5's block with three changes: no causal mask, the ima
 
   python dit.py          # -> dit.pt, dit_samples.png
 """
-import math, torch, torch.nn as nn, torch.nn.functional as F
+import argparse, math, torch, torch.nn as nn, torch.nn.functional as F
 from vqvae import CLASSES, load_cifar, to_images, grid
 
 PATCH, C, LAYERS, HEADS, NSTEPS = 4, 256, 6, 8, 1000
@@ -96,6 +96,9 @@ def sample(model, y, steps=50, guidance=3.0):
     return x
 
 if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("--steps", type=int, default=20000)
+    args = p.parse_args()
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     torch.manual_seed(0)
     x_all, y_all = load_cifar()
@@ -104,7 +107,7 @@ if __name__ == "__main__":
     opt = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=0.0)
     ab = alpha_bar.to(device)
 
-    for step in range(20001):
+    for step in range(args.steps + 1):
         i = torch.randint(0, len(x_all), (128,))
         x0, y = x_all[i].to(device), y_all[i].to(device)
         x0 = torch.where(torch.rand(len(x0), 1, 1, 1, device=device) < 0.5, x0, x0.flip(3))  # random mirror

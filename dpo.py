@@ -1,4 +1,4 @@
-import copy, json, random, torch, torch.nn.functional as F
+import argparse, copy, json, random, torch, torch.nn.functional as F
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
 
@@ -6,10 +6,14 @@ device = "mps" if torch.backends.mps.is_available() else "cpu"
 random.seed(0)
 tok = BPETokenizer().load("tok.pkl")
 EOT = tok.special["<|endoftext|>"]
-T, beta, steps, pairs_per_batch = 256, 0.1, 300, 8
+p = argparse.ArgumentParser()
+p.add_argument("--steps", type=int, default=300)
+args = p.parse_args()
+T, beta, steps, pairs_per_batch = 256, 0.1, args.steps, 8
 
 ck = torch.load("chat.pt", map_location=device)
 policy = GPT(GPTConfig(**ck["cfg"])).to(device)
+T = min(T, policy.cfg.block_size)                  # never longer than the model's context
 policy.load_state_dict(ck["model"])
 ref = copy.deepcopy(policy).eval()
 for p in ref.parameters():

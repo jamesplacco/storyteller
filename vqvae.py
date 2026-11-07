@@ -6,7 +6,7 @@ so pictures become token sequences, just like text.
   pip install pillow
   python vqvae.py         # -> vqvae.pt, image_codes.pt, recon.png
 """
-import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+import argparse, numpy as np, torch, torch.nn as nn, torch.nn.functional as F
 from PIL import Image
 
 CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
@@ -101,6 +101,9 @@ def load_cifar(split="train"):
     return x, torch.tensor(ds["label"])
 
 if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("--steps", type=int, default=6000)
+    args = p.parse_args()
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     torch.manual_seed(0)
     x_all, y_all = load_cifar()
@@ -109,7 +112,7 @@ if __name__ == "__main__":
     opt = torch.optim.Adam(model.parameters(), lr=2e-4)
     var = x_all.var().item()
 
-    for step in range(6001):
+    for step in range(args.steps + 1):
         x = x_all[torch.randint(0, len(x_all), (128,))].to(device)
         recon, idx, vq_loss, z = model(x)
         rec_loss = F.mse_loss(recon, x) / var

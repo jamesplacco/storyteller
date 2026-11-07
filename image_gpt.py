@@ -5,7 +5,7 @@ codebook entries plus 10 class tokens. Generating after a class token draws a ne
 
   python image_gpt.py     # needs image_codes.pt, vqvae.pt -> image_gpt.pt, samples.png
 """
-import math, torch
+import argparse, math, torch
 from model import GPT, GPTConfig
 from vqvae import K, CLASSES, load_vqvae, to_images, grid
 
@@ -21,13 +21,16 @@ def load_image_gpt(path, device):
     return m.eval()
 
 if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("--steps", type=int, default=8000)
+    args = p.parse_args()
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     torch.manual_seed(0)
     data = torch.load("image_codes.pt")
     seqs = torch.cat([data["labels"].long().unsqueeze(1) + K, data["codes"].long()], dim=1)   # (N, 65)
     cfg = GPTConfig(vocab_size=K + len(CLASSES), block_size=65, n_layer=6, n_head=6, n_embd=384)
     model = GPT(cfg).to(device)
-    steps, warmup, max_lr = 8000, 200, 6e-4
+    steps, warmup, max_lr = args.steps, 200, 6e-4
     opt = torch.optim.AdamW(model.parameters(), lr=max_lr, betas=(0.9, 0.95), weight_decay=0.1)
 
     for step in range(steps):

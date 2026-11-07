@@ -5,7 +5,7 @@ with the Bradley-Terry loss: P(chosen beats rejected) = sigmoid(r_chosen - r_rej
 
   python reward.py        # needs chat.pt and sft.json -> reward.pt
 """
-import json, random, torch, torch.nn as nn, torch.nn.functional as F
+import argparse, json, random, torch, torch.nn as nn, torch.nn.functional as F
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
 
@@ -50,12 +50,16 @@ def make_pair(data):
     return ex["prompt"], ex["response"], bad["response"]   # prompt, chosen, rejected
 
 if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("--steps", type=int, default=400)
+    args = p.parse_args()
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     random.seed(0); torch.manual_seed(0)
     tok = BPETokenizer().load("tok.pkl")
     EOT = tok.special["<|endoftext|>"]
 
     ck = torch.load("chat.pt", map_location=device)
+    T = min(T, ck["cfg"]["block_size"])                 # never longer than the model's context
     rm = RewardModel(ck["cfg"]).to(device)
     rm.gpt.load_state_dict(ck["model"])          # start from the chat model's understanding of text
 
@@ -70,7 +74,7 @@ if __name__ == "__main__":
         return idx.to(device), last.to(device)
 
     opt = torch.optim.AdamW(rm.parameters(), lr=5e-5, weight_decay=0.0)
-    for step in range(400):
+    for step in range(args.steps):
         idx, last = batch(train_data)
         r = rm(idx, last)
         loss = -F.logsigmoid(r[0::2] - r[1::2]).mean()       # Bradley-Terry

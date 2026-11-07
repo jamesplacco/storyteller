@@ -21,7 +21,8 @@ def quantize_(module, skip=("lm_head",)):          # lm_head is tied to the embe
     return module
 
 val = np.memmap("val.bin", dtype=np.uint16, mode="r")
-def val_loss(m, n=20, B=16, T=256):
+def val_loss(m, n=20, B=16):
+    T = min(256, m.cfg.block_size)                # never longer than the model's context
     g = np.random.default_rng(0)                   # same batches for both models
     tot = 0.0
     with torch.no_grad():
