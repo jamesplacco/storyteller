@@ -27,12 +27,20 @@ T = min(T, model.cfg.block_size)                   # never longer than the model
 model.load_state_dict(ck["model"])
 for p in model.parameters():
     p.requires_grad = False
-model.wte.weight.requires_grad = True                 # learn the new chat tokens
+# The chat tokens never appeared in pretraining, so their embedding rows are untrained. Learn
+# just those rows: a gradient mask zeroes every other row of the (tied) embedding.
+model.wte.weight.requires_grad = True
+chat_rows = torch.zeros(model.cfg.vocab_size, 1, device=device)
+chat_rows[list(tok.special.values())] = 1.0
+model.wte.weight.register_hook(lambda g: g * chat_rows)
 for blk in model.blocks:
     blk.attn.qkv = LoRALinear(blk.attn.qkv).to(device)
     blk.attn.proj = LoRALinear(blk.attn.proj).to(device)
 trainable = [p for p in model.parameters() if p.requires_grad]
-print(f"trainable {sum(p.numel() for p in trainable):,} of {sum(p.numel() for p in model.parameters()):,}")
+n_lora = sum(p.numel() for n, p in model.named_parameters() if p.requires_grad and n != "wte.weight")
+n_emb = len(tok.special) * model.cfg.n_embd
+print(f"trainable {n_lora + n_emb:,} of {sum(p.numel() for p in model.parameters()):,} "
+      f"({n_lora:,} in LoRA adapters, {n_emb:,} in the chat-token embeddings)")
 
 data = json.load(open("sft.json"))
 def encode(ex):

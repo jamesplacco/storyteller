@@ -27,7 +27,7 @@ pytest -x -v tests
 
 This runs every chapter's script, in order, at toy scale on synthetic stand-in data: no downloads,
 3 to 10 minutes. Each test checks a claim the course makes, for example that the C engine prints
-exactly what PyTorch prints, that the KV-cache changes nothing but speed, and that hand-written
+exactly what PyTorch prints, that the KV-cache gives the same tokens as recomputing everything, and that hand-written
 ZeRO-1 matches AdamW. On a Mac it also checks that the Apple GPU gives the same answers as the CPU.
 The same suite runs on GitHub on every push.
 
@@ -68,4 +68,5 @@ set `CKPT=...` to choose. It draws illustrations once `vqvae.pt` and `image_gpt.
 - On a Mac, the distributed scripts run as CPU processes with the `gloo` backend. On NVIDIA
   GPUs they switch to `nccl` and `cuda` automatically.
 - If bf16 autocast isn't supported on your macOS and PyTorch versions, train in fp32.
-- `./run model.bin tok.bin -t 0` and `python sample.py --temperature 0` print the same story.
+- `./run model.bin tok.bin -t 0 -n 200 -i "Once upon a time"` and `python sample.py --temperature 0` print the
+  same story: greedy decoding is deterministic, so C and PyTorch must agree token for token.

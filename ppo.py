@@ -48,7 +48,8 @@ def rollout():
     policy.eval()
     for gi, prompt in enumerate(random.sample(prompts, P)):
         p_ids = tok.encode(f"<|user|>{prompt}<|assistant|>")
-        out = policy.generate_cached(torch.tensor([p_ids] * G, device=device), max_new, temperature=1.0)
+        n_new = min(max_new, policy.cfg.block_size - len(p_ids))       # stay inside the context
+        out = policy.generate_cached(torch.tensor([p_ids] * G, device=device), n_new, temperature=1.0)
         for row in out.tolist():
             resp = row[len(p_ids):]
             if EOT in resp:

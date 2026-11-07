@@ -125,6 +125,7 @@ if __name__ == "__main__":
         if step % 5000 == 0 and step > 0:
             torch.save(model.state_dict(), "dit.pt")
 
+    torch.save(model.state_dict(), "dit.pt")
     model.eval()
     y = torch.arange(len(CLASSES), device=device).repeat_interleave(8)
     grid(to_images(sample(model, y)), ncol=8).save("dit_samples.png")

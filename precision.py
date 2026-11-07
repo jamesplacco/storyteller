@@ -2,7 +2,7 @@
 
   python precision.py
 """
-import torch, torch.nn.functional as F
+import torch
 from model import GPT, GPTConfig
 
 torch.manual_seed(0)

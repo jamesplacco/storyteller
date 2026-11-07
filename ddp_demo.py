@@ -10,17 +10,17 @@ opt = torch.optim.AdamW(model.parameters(), lr=1e-3)
 
 for step in range(20):
     g = torch.Generator().manual_seed(step * world + rank)       # different data per rank
-    x = torch.randint(0, 4096, (8, 64), generator=g)
-    y = torch.roll(x, -1, dims=1)
+    seq = torch.randint(0, 4096, (8, 65), generator=g)
+    x, y = seq[:, :-1], seq[:, 1:]                               # next-token targets
     _, loss = model(x, y)
     opt.zero_grad(); loss.backward(); opt.step()                # backward all-reduces grads
     if rank == 0 and step % 5 == 0:
         print(f"step {step} loss {loss.item():.3f}")
 
-w = next(model.parameters()).detach().clone()
-dist.all_reduce(w, op=dist.ReduceOp.MAX); mx = w.clone()
-w = next(model.parameters()).detach().clone()
-dist.all_reduce(w, op=dist.ReduceOp.MIN)
+flat = torch.nn.utils.parameters_to_vector(model.parameters()).detach()   # every weight
+mx, mn = flat.clone(), flat.clone()
+dist.all_reduce(mx, op=dist.ReduceOp.MAX)
+dist.all_reduce(mn, op=dist.ReduceOp.MIN)
 if rank == 0:
-    print("replicas identical:", torch.equal(mx, w))
+    print("replicas identical:", torch.equal(mx, mn))
 dist.destroy_process_group()

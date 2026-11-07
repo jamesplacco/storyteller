@@ -238,16 +238,18 @@ int main(int argc, char **argv) {
     float *buf = load_model(argv[1]);
     load_tokenizer(argv[2]);
 
-    int *toks = malloc((cfg.block_size + 1024) * sizeof(int)), n = 0;
+    if (n_tok > cfg.vocab_size) { fprintf(stderr, "tok.bin has %d tokens but the model only %d\n", n_tok, cfg.vocab_size); return 1; }
+    size_t plen = (prompt ? strlen(prompt) : 0) + (chat ? strlen(chat) : 0);
+    int *toks = malloc((plen + cfg.block_size + 3) * sizeof(int)), n = 0;   // a token is at least one byte
     if (chat) { toks[n++] = USER; n += encode(chat, toks + n); toks[n++] = ASSISTANT; }
     else if (prompt) { n = encode(prompt, toks); }
-    else { toks[n++] = EOT; }                         // "start of a new story"
+    if (n == 0) toks[n++] = EOT;                      // no prompt: "start of a new story"
     if (n >= cfg.block_size) { fprintf(stderr, "prompt too long\n"); return 1; }
     if (prompt) printf("%s", prompt);
 
     int *idx = malloc(cfg.vocab_size * sizeof(int)), generated = 0;
     double t0 = now();
-    for (int pos = 0; pos < cfg.block_size - 1; pos++) {
+    for (int pos = 0; pos < cfg.block_size; pos++) {    // stops where model.py's generate_cached stops
         float *logits = forward(toks[pos], pos);     // prefill runs through the prompt one token at a time
         if (pos < n - 1) continue;
         int next = sample(logits, temp, 50, idx);
@@ -258,6 +260,6 @@ int main(int argc, char **argv) {
     double dt = now() - t0;
     printf("\n");
     fprintf(stderr, "\n%d tokens in %.2fs (%.0f tok/s)\n", generated, dt, generated / dt);
-    free(buf);
+    free(buf); free(toks); free(idx);
     return 0;
 }

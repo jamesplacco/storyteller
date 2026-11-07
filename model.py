@@ -1,4 +1,4 @@
-import math, torch, torch.nn as nn, torch.nn.functional as F
+import torch, torch.nn as nn, torch.nn.functional as F
 from dataclasses import dataclass
 
 @dataclass

@@ -83,7 +83,7 @@ def test_ch05_parameter_count(work):
 
 def test_ch06_tokenizer(work):
     py(work, "train_tok.py")                        # asserts its own round trip
-    out = py(work, "prepare.py")
+    py(work, "prepare.py")
     assert (work / "train.bin").stat().st_size > 0 and (work / "val.bin").stat().st_size > 0
     from bpe import BPETokenizer
     tok = BPETokenizer().load("tok.pkl")
@@ -136,6 +136,15 @@ def test_ch08_c_engine_matches_pytorch(work):
         gen = gen[:gen.index(EOT)]
     assert c_text == "Once upon a time" + tok.decode(gen)
 
+def test_ch08_c_engine_edge_cases(work):
+    if not (work / "run").exists():
+        pytest.skip("no C engine built")
+    env = {**os.environ}
+    r = subprocess.run(["./run", "model.bin", "tok.bin", "-i", "", "-n", "5"], cwd=work, capture_output=True, text=True, env=env)
+    assert r.returncode == 0                         # empty prompt starts a new story
+    r = subprocess.run(["./run", "model.bin", "tok.bin", "-i", "word " * 2000], cwd=work, capture_output=True, text=True, env=env)
+    assert r.returncode == 1 and "prompt too long" in r.stderr   # refused cleanly, no overflow
+
 def test_ch09_precision(work):
     out = py(work, "precision.py")
     assert "bf16: 1.0 plus 1,000 updates of 1e-4 = 1.0000" in out
@@ -175,7 +184,7 @@ def test_ch11_sft_data(work):
     data = json.load(open("sft.json"))
     assert len(data) > 100 and all(ex["word"] in ex["response"].lower() for ex in data)
 
-def test_ch12_kv_cache_matches(work):
+def test_ch12_kv_cache_matches(work):          # within the context window
     m = load_cpu("ckpt.pt")
     idx = torch.randint(0, m.cfg.vocab_size, (2, 8), generator=torch.Generator().manual_seed(0))
     assert torch.equal(m.generate(idx, 50, top_k=1), m.generate_cached(idx, 50, top_k=1))
@@ -189,7 +198,13 @@ def test_ch13_quantize(work):
 def test_ch14_sft(work):
     out = py(work, "sft.py", "--steps", "60")
     trainable, total = [int(x.replace(",", "")) for x in re.findall(r"trainable ([\d,]+) of ([\d,]+)", out)[0]]
-    assert trainable < total and (work / "chat.pt").exists()
+    assert trainable < 0.2 * total and (work / "chat.pt").exists()
+    from bpe import BPETokenizer
+    special = list(BPETokenizer().load("tok.pkl").special.values())
+    before, after = load_cpu("ckpt.pt").wte.weight, load_cpu("chat.pt").wte.weight
+    keep = torch.ones(len(before), dtype=torch.bool); keep[special] = False
+    assert torch.equal(before[keep], after[keep])    # LoRA left the pretrained embedding alone
+    assert not torch.equal(before[special], after[special])
 
 def test_ch15_reward_model(work):
     out = py(work, "reward.py", "--steps", "40")

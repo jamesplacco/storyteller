@@ -1,4 +1,4 @@
-import math, torch, torch.nn as nn, torch.nn.functional as F
+import math, torch, torch.nn as nn
 
 def softmax(z):
     z = z - z.max(dim=-1, keepdim=True).values   # subtract max for numerical stability

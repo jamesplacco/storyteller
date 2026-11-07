@@ -1,7 +1,7 @@
 import re, pickle
 from collections import Counter
 
-PAT = re.compile(r" ?[A-Za-z]+| ?[0-9]+| ?[^\sA-Za-z0-9]+|\s+")
+PAT = re.compile(r" ?[A-Za-z]+| ?[0-9]+| ?[^\sA-Za-z0-9]+|\s+", re.ASCII)   # ASCII \s, same as run.c
 SPECIALS = ["<|endoftext|>", "<|user|>", "<|assistant|>"]
 
 def get_stats(ids, counts, weight=1):
@@ -25,7 +25,7 @@ class BPETokenizer:
         self.special, self._cache = {}, {}
 
     def train(self, text, vocab_size, verbose=False):
-        chunks = Counter(tuple(c.encode("utf-8")) for c in PAT.findall(text))
+        chunks = Counter(tuple(m.group().encode("utf-8")) for m in PAT.finditer(text))   # streams, no giant list
         for i in range(vocab_size - 256 - len(SPECIALS)):
             stats = {}
             for ids, n in chunks.items():
@@ -37,7 +37,7 @@ class BPETokenizer:
             chunks = Counter({tuple(merge(list(ids), pair, idx)): n for ids, n in chunks.items()})
             self.merges[pair] = idx
             self.vocab[idx] = self.vocab[pair[0]] + self.vocab[pair[1]]
-            if verbose and i % 250 == 0:
+            if verbose and (i < 10 or i % 250 == 0):
                 print(f"merge {i}: {self.vocab[idx]!r} ({stats[pair]:,} uses)")
         self._add_specials()
 

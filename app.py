@@ -6,8 +6,8 @@ image GPT if you trained one in Chapter 17.
   pip install fastapi uvicorn pillow
   uvicorn app:app --port 8000          # then open http://localhost:8000
 """
-import io, os, random, re, torch
-from fastapi import FastAPI
+import codecs, io, os, random, re, threading, torch
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, StreamingResponse, Response
 from pydantic import BaseModel
 from model import GPT, GPTConfig
@@ -21,6 +21,7 @@ ck = torch.load(CKPT, map_location=device)
 model = GPT(GPTConfig(**ck["cfg"])).to(device).eval()
 model.load_state_dict(ck["model"])
 print(f"story model: {CKPT}")
+gpu = threading.Lock()                     # requests run on several threads; the GPU takes one at a time
 
 # ---- optional illustrator (Chapter 17) ----
 illustrator = None
@@ -48,7 +49,7 @@ def stream_tokens(ids, max_new=300, temperature=0.8, top_k=50):
         v, _ = torch.topk(logits, top_k)
         logits[logits < v[-1]] = -float("inf")
         nxt = torch.multinomial(torch.softmax(logits, -1), 1)
-        if nxt.item() == EOT:
+        if nxt.item() >= EOT:                  # end of story, or the model starting a new chat turn
             break
         yield nxt.item()
         pos0, x_in = pos0 + T, nxt.view(1, 1)
@@ -62,8 +63,21 @@ app = FastAPI()
 @app.post("/chat")
 def chat(req: ChatRequest):
     ids = tok.encode(f"<|user|>{req.prompt}<|assistant|>")
-    gen = (tok.decode([t]) for t in stream_tokens(ids, temperature=req.temperature))
-    return StreamingResponse(gen, media_type="text/plain")
+    if len(ids) >= model.cfg.block_size - 16:
+        raise HTTPException(400, "That request is too long for this model's context. Try a shorter one.")
+    def text():
+        dec = codecs.getincrementaldecoder("utf-8")(errors="replace")   # holds back half a character
+        steps = stream_tokens(ids, temperature=req.temperature)
+        while True:
+            with gpu:
+                t = next(steps, None)
+            if t is None:
+                break
+            piece = dec.decode(tok.vocab[t])
+            if piece:
+                yield piece
+        yield dec.decode(b"", final=True)
+    return StreamingResponse(text(), media_type="text/plain")
 
 @app.get("/illustrate")
 def illustrate(text: str = ""):
@@ -73,7 +87,7 @@ def illustrate(text: str = ""):
     hits = [WORD_TO_CLASS[w] for w in words if w in WORD_TO_CLASS]
     cls = CLASSES.index(hits[0] if hits else random.choice(["bird", "cat", "dog", "frog", "horse"]))
     gpt, vq = illustrator
-    with torch.no_grad():
+    with gpu, torch.no_grad():
         img = to_images(vq.decode_codes(generate_codes(gpt, cls, 1)))[0].resize((192, 192))
     buf = io.BytesIO(); img.save(buf, format="PNG")
     return Response(buf.getvalue(), media_type="image/png")

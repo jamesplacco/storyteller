@@ -30,9 +30,10 @@ def encode(prompt, resp):
 def batch():
     xs, ys = [], []
     for ex in random.sample(data, pairs_per_batch):
-        bad = random.choice(data)
-        while ex["word"] in bad["response"].lower():
+        for _ in range(100):                               # find a story about something else
             bad = random.choice(data)
+            if ex["word"] not in bad["response"].lower():
+                break
         for resp in (ex["response"], bad["response"]):     # chosen, rejected
             x, y = encode(ex["prompt"], resp); xs.append(x); ys.append(y)
     return torch.tensor(xs, device=device), torch.tensor(ys, device=device)

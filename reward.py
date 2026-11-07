@@ -89,5 +89,5 @@ if __name__ == "__main__":
             r = rm(idx, last)
             correct += (r[0::2] > r[1::2]).sum().item()
             total += r.size(0) // 2
-    print(f"held-out accuracy {correct / total:.2f} on {total} pairs of stories it never trained on")
+    print(f"held-out accuracy {correct / total:.2f} on {total} pairs the reward model never trained on")
     torch.save({"model": rm.state_dict(), "cfg": ck["cfg"]}, "reward.pt")
