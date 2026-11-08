@@ -67,6 +67,10 @@ set `CKPT=...` to choose. It draws illustrations once `vqvae.pt` and `image_gpt.
   Chapters 7, 9 and 10: `--dtype bf16|fp16`, `--grad_accum N`, and DDP under `torchrun`.
 - On a Mac, the distributed scripts run as CPU processes with the `gloo` backend. On NVIDIA
   GPUs they switch to `nccl` and `cuda` automatically.
+- If `torchrun` hangs for 5 minutes and then fails with a `DistNetworkError` naming an
+  `...ip6.arpa` host, your Mac resolves its own hostname badly. Add `--local-addr=127.0.0.1`
+  after `torchrun`.
+- On Python 3.9, `torchrun` also needs `pip install importlib_metadata`.
 - If bf16 autocast isn't supported on your macOS and PyTorch versions, train in fp32.
 - `./run model.bin tok.bin -t 0 -n 200 -i "Once upon a time"` and `python sample.py --temperature 0` print the
   same story: greedy decoding is deterministic, so C and PyTorch must agree token for token.

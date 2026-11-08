@@ -5,15 +5,18 @@ gathered just in time for each block's forward and backward.
 """
 import torch, torch.distributed as dist
 from torch.distributed.fsdp import fully_shard
+from torch.distributed.device_mesh import init_device_mesh
 from model import GPT, GPTConfig
 
 dist.init_process_group("gloo")                  # "nccl" on NVIDIA GPUs
 rank = dist.get_rank()
+# An explicit CPU mesh: left to itself, fully_shard picks mps on a Mac and crashes in torch 2.8
+mesh = init_device_mesh("cpu", (dist.get_world_size(),))
 torch.manual_seed(0)
 model = GPT(GPTConfig(vocab_size=512, block_size=64, n_layer=2, n_head=4, n_embd=128))
 for block in model.blocks:
-    fully_shard(block)                           # each block gathers its own weights when needed
-fully_shard(model)                               # embeddings and final norm
+    fully_shard(block, mesh=mesh)                # each block gathers its own weights when needed
+fully_shard(model, mesh=mesh)                    # embeddings and final norm
 opt = torch.optim.AdamW(model.parameters(), lr=1e-3)   # optimizer state is sharded too
 
 g = torch.Generator().manual_seed(rank)

@@ -36,7 +36,10 @@ def py(work, script, *args):
     return run(work, sys.executable, script, *args)
 
 def torchrun(work, script, *args, n=2):
-    return run(work, sys.executable, "-m", "torch.distributed.run", "--standalone", f"--nproc_per_node={n}", script, *args)
+    # --local-addr: some Macs resolve their own hostname to an unreachable ip6.arpa name,
+    # and --standalone then waits 5 minutes to connect to it
+    return run(work, sys.executable, "-m", "torch.distributed.run", "--standalone", "--local-addr=127.0.0.1",
+               f"--nproc_per_node={n}", script, *args)
 
 def floats(pattern, text):
     found = []
