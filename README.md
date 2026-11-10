@@ -6,6 +6,9 @@ A complete build of Andrej Karpathy's LLM101n syllabus: a small language model t
 illustrates bedtime stories, built from scratch across 17 chapters. The course site explains each
 file; this folder holds every file in its final, tested form.
 
+**Course site:** https://jamesplacco.github.io/storyteller/ explains every chapter, with labs that run in
+your browser.
+
 Written for an Apple Silicon Mac (PyTorch `mps`), with automatic fallback to CPU. Runs unchanged
 on NVIDIA GPUs.
 
