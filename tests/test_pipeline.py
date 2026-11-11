@@ -290,6 +290,7 @@ def test_report(work):
     [d] = glob.glob(str(work / "reports" / "*-ci"))
     m = json.load(open(f"{d}/manifest.json"))
     assert m["models"]["ckpt.pt"]["sha256"] == hashlib.sha256(open(work / "ckpt.pt", "rb").read()).hexdigest()
+    assert m["models"]["ckpt.pt"]["params"] == sum(p.numel() for p in load_cpu("ckpt.pt").parameters())   # tied weights once
     assert m["models"]["ckpt.pt"]["train"]["script"] == "train.py"       # training settings travel with the weights
     assert m["systems"]["C engine matches PyTorch (greedy, 150 tokens)"] is True
     text = open(f"{d}/REPORT.md").read()

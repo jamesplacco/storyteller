@@ -72,7 +72,7 @@
   "ckpt.pt": {
    "sha256": "95bd32f8cd721f14a1a530f80bce8c543c5328e4845710d25de5bc66c28faaf8",
    "mb": 49.3,
-   "params": 13891584,
+   "params": 12318720,
    "cfg": {
     "vocab_size": 4096,
     "block_size": 256,
@@ -105,7 +105,7 @@
   "chat.pt": {
    "sha256": "b49b7bce83c02856c8265b88698a24d0f02a2108039db3845999aa3ddb194908",
    "mb": 49.3,
-   "params": 13891584,
+   "params": 12318720,
    "cfg": {
     "vocab_size": 4096,
     "block_size": 256,
@@ -123,7 +123,7 @@
   "chat_dpo.pt": {
    "sha256": "e3c2c78d04b39e6aabde6b32549e23936747ac72b8b0b19892d6899637d0e0ea",
    "mb": 49.3,
-   "params": 13891584,
+   "params": 12318720,
    "cfg": {
     "vocab_size": 4096,
     "block_size": 256,
@@ -141,7 +141,7 @@
   "chat_ppo.pt": {
    "sha256": "8331d0a757acb4d42de37e00aba24a730876564faafa5c6347f051c29448974b",
    "mb": 49.3,
-   "params": 13891584,
+   "params": 12318720,
    "cfg": {
     "vocab_size": 4096,
     "block_size": 256,
@@ -159,7 +159,7 @@
   "reward.pt": {
    "sha256": "2f334128ce529abb7928778f91ab0a0aa587ed83c92b747b9c3dc2cf96233aae",
    "mb": 49.3,
-   "params": 13891969,
+   "params": 12319105,
    "cfg": {
     "vocab_size": 4096,
     "block_size": 256,
@@ -172,14 +172,14 @@
   "vqvae.pt": {
    "sha256": "9f12049ddb33dd3e7d301a3158d7d2886e15361631be264f0991ad8218e08096",
    "mb": 5.24,
-   "params": 1308739,
+   "params": 1308227,
    "cfg": null,
    "train": null
   },
   "image_gpt.pt": {
    "sha256": "a66fd3150cbfd48004da0fca3cdb427959542bae5c5d7f3b4ca7fe534861c71f",
    "mb": 43.52,
-   "params": 11073408,
+   "params": 10872960,
    "cfg": {
     "vocab_size": 522,
     "block_size": 65,

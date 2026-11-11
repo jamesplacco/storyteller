@@ -35,7 +35,7 @@ stories, illustrations, measured speeds and checksums for every file.
 
 <img src="reports/2026-11-11-fa302ea-first-run/showcase.png" width="192" alt="Generated 32x32 picture of a frog">
 
-Written by `chat_dpo.pt` (13.9M parameters, trained from scratch on this repo's code), with a class-conditioned 32×32 picture from the image GPT. One fixed prompt, seed 0, not picked from several tries. Full results: [reports/2026-11-11-fa302ea-first-run/REPORT.md](reports/2026-11-11-fa302ea-first-run/REPORT.md).
+Written by `chat_dpo.pt` (12.3M parameters, trained from scratch on this repo's code), with a class-conditioned 32×32 picture from the image GPT. One fixed prompt, seed 0, not picked from several tries. Full results: [reports/2026-11-11-fa302ea-first-run/REPORT.md](reports/2026-11-11-fa302ea-first-run/REPORT.md).
 <!-- showcase:end -->
 
 ## How the pieces fit

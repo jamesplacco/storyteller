@@ -1660,7 +1660,7 @@ function renderChapter(c) {
 
 /* ---------- launch post drafts (page at #launch, not linked from the course navigation) ---------- */
 const REDDIT_TITLE = "[P] Storyteller: Karpathy's LLM101n syllabus built out end to end, with tests that check every claim (the C engine matches PyTorch token for token)";
-const REDDIT_BODY = `Karpathy's LLM101n repo is a syllabus with no course behind it yet (he archived it in August 2024). I built all 17 chapters as one small project: a 12M-parameter GPT that writes TinyStories-style bedtime stories, trained from scratch on a laptop.
+const REDDIT_BODY = `Karpathy's LLM101n repo is a syllabus with no course behind it yet (he archived it in August 2024). I built all 17 chapters as one small project: a 12.3M-parameter GPT that writes TinyStories-style bedtime stories. Pretraining took 62 minutes on an 8 GB M3 Mac.
 
 **What's in it**
 
@@ -1682,9 +1682,22 @@ const REDDIT_BODY = `Karpathy's LLM101n repo is a syllabus with no course behind
 - LoRA leaves the pretrained embedding rows untouched
 - DPO's loss starts at exactly ln 2
 
-**Results from my run**
+**Results from my run (one run per stage, 50 fixed prompts per model, same seeds)**
 
-[Paste the frog story and the evaluation table from your reports/ folder here. Attach the picture.]
+| model | perplexity | topic word present | story finished |
+|---|---|---|---|
+| base | 6.49 | | |
+| + LoRA SFT | 6.59 | 36% | 80% |
+| + DPO | 6.65 | 96% | 70% |
+| + PPO | 6.68 | 44% | 98% |
+
+DPO did what it was trained to do, a little too well. Asked for "a bedtime story about a frog" (fixed prompt, seed 0, not picked from several tries), it wrote:
+
+> Once upon a time, there was a little frog who lived in a meadow. The frog liked to hop and play all day. One day, the frog saw a beautiful frog. [...] The frog asked the frog, "Can you help me find the frog?"
+
+The metric went to 96% and the story is mostly the word "frog". That is Goodhart's law on a 12M-parameter model, and the finish rate dropped to 70% along the way. PPO barely moved the topic metric (44%) but 98% of its stories end on their own; its reward peaked around iteration 60 and then fell. I'd call that an honest negative result for PPO at this scale and with this reward model.
+
+Systems numbers from the same run: the C engine matches PyTorch token for token and runs 729 tokens/s on one CPU thread, against 181 for PyTorch with the KV-cache on the GPU. int8 quantization cut the weights from 49.3 MB to 17.5 MB with the same validation loss (1.8707). Full report with every generated story, checksums and settings: https://github.com/jamesplacco/storyteller/tree/main/reports
 
 **Limits, stated up front**
 
@@ -1698,11 +1711,12 @@ Code (MIT): https://github.com/jamesplacco/storyteller
 
 Feedback welcome, especially on the evaluation: what would you measure next on a model this small?`;
 const X_THREAD = [
-"Karpathy's LLM101n is a syllabus with no course behind it yet. I built all 17 chapters into one project: a 12M-parameter GPT that writes bedtime stories, trained from scratch on a laptop.\n\nCode and a free interactive course: https://jamesplacco.github.io/storyteller/",
+"Karpathy's LLM101n is a syllabus with no course behind it yet. I built all 17 chapters into one project: a 12M-parameter GPT that writes bedtime stories, pretrained in an hour on an 8 GB M3 Mac.\n\nCode and a free interactive course: https://jamesplacco.github.io/storyteller/",
 "It covers the whole stack: BPE tokenizer, transformer, AdamW, mixed precision, DDP and ZeRO, KV-cache, int8 quantization, LoRA, a reward model with PPO, DPO, a VQ-VAE image tokenizer and a small diffusion transformer.",
 "The part I'd point to first: 35 tests that check the course's own claims.\n\nA 265-line C engine prints exactly what PyTorch prints. KV-cache output equals no-cache output. Hand-written ZeRO-1 matches AdamW.\n\nAll offline, about 4 minutes.",
-"Limits, up front: the preference data for PPO and DPO is synthetic, the illustrations are 32x32 CIFAR classes, and a 12M model makes logic slips.\n\nBuilt with Claude as a pair programmer, then independently reviewed and tested.",
-"Here is a story and a picture it made. [attach both from your reports/ folder]\n\nRepo (MIT): https://github.com/jamesplacco/storyteller\n\nFeedback welcome, especially on evaluation."];
+"My favorite result: DPO took 'story mentions the requested topic' from 36% to 96%. Then I read one.\n\n\"The frog asked the frog, 'Can you help me find the frog?'\"\n\nGoodhart's law, reproduced on a laptop. PPO barely moved the metric at all.",
+"Limits, up front: the preference data for PPO and DPO is synthetic, the pictures are 32x32 CIFAR classes, and a 12M model makes logic slips.\n\nBuilt with Claude as a pair programmer, then independently reviewed and tested.",
+"Every number, every generated story and the checksums are in the report.\n\nRepo (MIT): https://github.com/jamesplacco/storyteller\n\nFeedback welcome, especially on evaluation."];
 function textBlock(src, label) {
   const i = CODE_SRC.push(src) - 1;
   return `<div class="code"><div class="code-head"><span class="code-file">${label}</span><button class="copy" data-code="${i}">Copy</button></div><pre class="wrap"><code class="nohighlight">${esc(src)}</code></pre></div>`;
@@ -1712,9 +1726,9 @@ function renderLaunch() {
   <header class="ch-head"><div class="ch-num" aria-hidden="true">GO</div><div class="eyebrow">Draft · not linked from the course</div><h1>Launch post</h1><p class="lede" style="font-size:16px">One post on r/MachineLearning, one thread on X, then the project is frozen. Nothing here has been submitted.</p></header>
   <section class="stack" style="gap:14px"><h2 class="sec-label"><i>01</i>Before you post</h2>
     <div class="prose"><ul>
-      <li>Run the full pipeline on your Mac, then <code>python report.py --name first-run</code>. It writes the report and puts one story and one picture at the top of the README.</li>
-      <li>Commit and push the report. Check that the README on GitHub shows the story and that the tests badge is green.</li>
-      <li>Replace the two bracketed placeholders below with your real story, table and picture. Post nothing you have not measured.</li>
+      <li>The numbers and the story below come from the first-run report in the repo (2026-11-11, 8 GB M3 Mac). If you retrain, update them. Post nothing you have not measured.</li>
+      <li>Check that the README on GitHub shows the story and picture and that the tests badge is green.</li>
+      <li>Attach a screenshot of the README's story and frog picture to the Reddit post and to X post 4.</li>
       <li>r/MachineLearning requires the <code>[P]</code> tag for projects, already in the title. Check the subreddit's current rules on self-promotion before posting.</li>
     </ul></div></section>
   <section class="build"><h2 class="sec-label"><i>02</i>r/MachineLearning</h2>${textBlock(REDDIT_TITLE, "title")}${textBlock(REDDIT_BODY, "body (Reddit markdown)")}</section>

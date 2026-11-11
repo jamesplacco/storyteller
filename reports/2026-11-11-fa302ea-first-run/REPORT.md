@@ -21,15 +21,17 @@ Generated 2026-11-11T16:24:49 by `report.py` at commit `fa302ea`. Every number b
 
 | checkpoint | parameters | MB | training recorded in the checkpoint |
 |---|---:|---:|---|
-| `ckpt.pt` | 13,891,584 | 49.3 | script train.py, steps_done 5,000, max_steps 5,000, tokens_seen 40,960,000, batch_size 32, block_size 256, grad_accum 1, dtype fp32, max_lr 0.001, device mps, world_size 1, seconds 3722.2, val_loss 1.8505 |
-| `chat.pt` | 13,891,584 | 49.3 | script sft.py, from ckpt.pt, steps 1,500, seconds 465.0 |
-| `chat_dpo.pt` | 13,891,584 | 49.3 | script dpo.py, from chat.pt, steps 300, seconds 116.8 |
-| `chat_ppo.pt` | 13,891,584 | 49.3 | script ppo.py, from chat.pt, iters 150, seconds 1000.8 |
-| `reward.pt` | 13,891,969 | 49.3 | not recorded |
-| `vqvae.pt` | 1,308,739 | 5.24 | not recorded |
-| `image_gpt.pt` | 11,073,408 | 43.52 | not recorded |
+| `ckpt.pt` | 12,318,720 | 49.3 | script train.py, steps_done 5,000, max_steps 5,000, tokens_seen 40,960,000, batch_size 32, block_size 256, grad_accum 1, dtype fp32, max_lr 0.001, device mps, world_size 1, seconds 3722.2, val_loss 1.8505 |
+| `chat.pt` | 12,318,720 | 49.3 | script sft.py, from ckpt.pt, steps 1,500, seconds 465.0 |
+| `chat_dpo.pt` | 12,318,720 | 49.3 | script dpo.py, from chat.pt, steps 300, seconds 116.8 |
+| `chat_ppo.pt` | 12,318,720 | 49.3 | script ppo.py, from chat.pt, iters 150, seconds 1000.8 |
+| `reward.pt` | 12,319,105 | 49.3 | not recorded |
+| `vqvae.pt` | 1,308,227 | 5.24 | not recorded |
+| `image_gpt.pt` | 10,872,960 | 43.52 | not recorded |
 
 SHA-256 checksums for every file are in `manifest.json`.
+
+Correction, 2026-11-11: the parameter counts above were first published too high (13,891,584 for the story models) because `report.py` counted the shared input and output embedding twice. The counting bug is fixed; no measurement changed.
 
 ## Evaluation
 

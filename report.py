@@ -74,7 +74,9 @@ for f in CKPTS:
     ck = torch.load(f, map_location="cpu")
     sd = ck.get("model", ck) if isinstance(ck, dict) else ck
     models[f] = {"sha256": sha256(f), "mb": mb(f),
-                 "params": sum(v.numel() for v in sd.values() if hasattr(v, "numel")),
+                 # tied weights (wte and lm_head) share storage: count each tensor once; skip buffers
+                 "params": sum({v.data_ptr(): v.numel() for k, v in sd.items()
+                                if hasattr(v, "numel") and not k.endswith("usage")}.values()),
                  "cfg": ck.get("cfg") if isinstance(ck, dict) else None,
                  "train": ck.get("train") if isinstance(ck, dict) else None}
     files[f] = {"sha256": models[f]["sha256"], "mb": models[f]["mb"]}
