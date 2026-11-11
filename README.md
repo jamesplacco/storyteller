@@ -14,6 +14,9 @@ your browser. No install needed.
 **Results:** real training runs are written up in [reports/](reports/) by `report.py`, with sample
 stories, illustrations, measured speeds and checksums for every file.
 
+<!-- showcase:start -->
+<!-- showcase:end -->
+
 ## How the pieces fit
 
 ```mermaid
@@ -128,8 +131,10 @@ compare checkpoints with `eval.py` and choose. The page shows which model is ans
 
 I built this with Claude (Anthropic's AI assistant) as a working partner: the code, tests and course
 site were written in a handful of long sessions, then checked by independent reviews and the test
-suite, which caught and fixed real bugs (see the commit history). Commits co-authored by Claude are
-marked as such. Running the chapters, training the models and writing up the results in `reports/`
+suite, which caught and fixed real bugs. Commits co-authored by Claude are marked as such. The
+history on `main` was reorganized into one commit per chapter on 2026-11-11 so the project reads in
+syllabus order; the commits as they actually happened, bug fixes included, are on the
+[`original-history`](https://github.com/jamesplacco/storyteller/commits/original-history) branch. Running the chapters, training the models and writing up the results in `reports/`
 is the part I do on my own hardware.
 
 ## Credits and terms

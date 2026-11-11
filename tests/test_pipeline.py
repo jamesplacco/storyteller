@@ -283,7 +283,10 @@ def test_device_selection(work, monkeypatch):
 
 def test_report(work):
     import glob, hashlib, json
+    (work / "README.md").write_text("# x\n<!-- showcase:start -->\n<!-- showcase:end -->\nrest\n")
     py(work, "report.py", "--n", "3", "--show", "2", "--name", "ci")
+    readme = (work / "README.md").read_text()
+    assert "Tell me a bedtime story about a frog." in readme and "showcase.png" in readme and readme.endswith("rest\n")
     [d] = glob.glob(str(work / "reports" / "*-ci"))
     m = json.load(open(f"{d}/manifest.json"))
     assert m["models"]["ckpt.pt"]["sha256"] == hashlib.sha256(open(work / "ckpt.pt", "rb").read()).hexdigest()

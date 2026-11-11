@@ -150,6 +150,7 @@ textarea{width:100%;font-family:var(--f-mono);font-size:13px;line-height:1.5}
 .copy{font-family:var(--f-display);font-weight:600;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--code-ink);background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:2px;padding:4px 10px;cursor:pointer}
 .copy:hover{background:#FFFFFF;color:#000000}
 .code pre{margin:0;padding:16px 18px;overflow-x:auto;font-family:var(--f-mono);font-size:13px;line-height:1.6;color:var(--code-ink)}
+.code pre.wrap{white-space:pre-wrap;word-break:break-word;font-family:var(--f-body);font-size:14.5px}
 .code pre code{background:none;padding:0;font-size:inherit;color:inherit}
 .hljs-keyword,.hljs-meta,.hljs-selector-tag{color:var(--c-kw)}
 .hljs-string,.hljs-attr{color:var(--c-str)}
@@ -1657,6 +1658,73 @@ function renderChapter(c) {
   </article>`;
 }
 
+/* ---------- launch post drafts (page at #launch, not linked from the course navigation) ---------- */
+const REDDIT_TITLE = "[P] Storyteller: Karpathy's LLM101n syllabus built out end to end, with tests that check every claim (the C engine matches PyTorch token for token)";
+const REDDIT_BODY = `Karpathy's LLM101n repo is a syllabus with no course behind it yet (he archived it in August 2024). I built all 17 chapters as one small project: a 12M-parameter GPT that writes TinyStories-style bedtime stories, trained from scratch on a laptop.
+
+**What's in it**
+
+- BPE tokenizer, GPT-2 style transformer and AdamW training loop, from scratch in PyTorch
+- A 265-line C inference engine with its own tokenizer and KV-cache
+- Mixed precision, DDP, a hand-written ZeRO-1 and an FSDP demo
+- KV-cache, int8 quantization, LoRA finetuning for chat
+- A reward model with PPO, and DPO
+- A VQ-VAE image tokenizer, an image GPT and a small diffusion transformer on CIFAR-10
+- A streaming web app, plus a free course site with 17 labs that run in the browser
+
+**The part I think is most useful: tests that check the claims**
+
+35 tests run every chapter at toy scale, offline, in about 4 minutes, and run on every push. Each one checks something the course asserts:
+
+- The C engine prints exactly what PyTorch prints under greedy decoding
+- Generating with the KV-cache gives the same tokens as recomputing everything
+- Hand-written ZeRO-1 matches plain AdamW to about 1e-5
+- LoRA leaves the pretrained embedding rows untouched
+- DPO's loss starts at exactly ln 2
+
+**Results from my run**
+
+[Paste the frog story and the evaluation table from your reports/ folder here. Attach the picture.]
+
+**Limits, stated up front**
+
+- The preference data for the reward model, PPO and DPO is synthetic (on-topic story vs off-topic story). It teaches the mechanics; it is not human preference data. A plain word check nearly solves it, and the code prints that baseline.
+- Illustrations are class-conditioned 32x32 CIFAR-10 images, not pictures of the specific story.
+- It is a 12M-parameter model. The stories are simple and make logic slips.
+- I built it with Claude as a pair programmer, then had it independently reviewed and tested. The README says so.
+
+Course site: https://jamesplacco.github.io/storyteller/
+Code (MIT): https://github.com/jamesplacco/storyteller
+
+Feedback welcome, especially on the evaluation: what would you measure next on a model this small?`;
+const X_THREAD = [
+"Karpathy's LLM101n is a syllabus with no course behind it yet. I built all 17 chapters into one project: a 12M-parameter GPT that writes bedtime stories, trained from scratch on a laptop.\n\nCode and a free interactive course: https://jamesplacco.github.io/storyteller/",
+"It covers the whole stack: BPE tokenizer, transformer, AdamW, mixed precision, DDP and ZeRO, KV-cache, int8 quantization, LoRA, a reward model with PPO, DPO, a VQ-VAE image tokenizer and a small diffusion transformer.",
+"The part I'd point to first: 35 tests that check the course's own claims.\n\nA 265-line C engine prints exactly what PyTorch prints. KV-cache output equals no-cache output. Hand-written ZeRO-1 matches AdamW.\n\nAll offline, about 4 minutes.",
+"Limits, up front: the preference data for PPO and DPO is synthetic, the illustrations are 32x32 CIFAR classes, and a 12M model makes logic slips.\n\nBuilt with Claude as a pair programmer, then independently reviewed and tested.",
+"Here is a story and a picture it made. [attach both from your reports/ folder]\n\nRepo (MIT): https://github.com/jamesplacco/storyteller\n\nFeedback welcome, especially on evaluation."];
+function textBlock(src, label) {
+  const i = CODE_SRC.push(src) - 1;
+  return `<div class="code"><div class="code-head"><span class="code-file">${label}</span><button class="copy" data-code="${i}">Copy</button></div><pre class="wrap"><code class="nohighlight">${esc(src)}</code></pre></div>`;
+}
+function renderLaunch() {
+  return `<div class="col">
+  <header class="ch-head"><div class="ch-num" aria-hidden="true">GO</div><div class="eyebrow">Draft · not linked from the course</div><h1>Launch post</h1><p class="lede" style="font-size:16px">One post on r/MachineLearning, one thread on X, then the project is frozen. Nothing here has been submitted.</p></header>
+  <section class="stack" style="gap:14px"><h2 class="sec-label"><i>01</i>Before you post</h2>
+    <div class="prose"><ul>
+      <li>Run the full pipeline on your Mac, then <code>python report.py --name first-run</code>. It writes the report and puts one story and one picture at the top of the README.</li>
+      <li>Commit and push the report. Check that the README on GitHub shows the story and that the tests badge is green.</li>
+      <li>Replace the two bracketed placeholders below with your real story, table and picture. Post nothing you have not measured.</li>
+      <li>r/MachineLearning requires the <code>[P]</code> tag for projects, already in the title. Check the subreddit's current rules on self-promotion before posting.</li>
+    </ul></div></section>
+  <section class="build"><h2 class="sec-label"><i>02</i>r/MachineLearning</h2>${textBlock(REDDIT_TITLE, "title")}${textBlock(REDDIT_BODY, "body (Reddit markdown)")}</section>
+  <section class="build"><h2 class="sec-label"><i>03</i>X thread</h2>${X_THREAD.map((t, i) => textBlock(t, `post ${i + 1} of ${X_THREAD.length} · ${t.length} characters`)).join("")}
+    <p class="codenote">Each post is under 280 characters. Links count as 23 on X whatever their length.</p></section>
+  <section class="stack" style="gap:14px"><h2 class="sec-label"><i>04</i>Then stop</h2>
+    <div class="prose"><p>Answer comments for a day or two, fix real bugs people find, and leave it there. No new chapters. The repo, the report and the course site are the finished artifact.</p></div></section>
+  </div>`;
+}
+
 let current = { route: "", widget: null };
 function mountWidget() {
   if (current.widget && W[current.widget]) { const el = $(current.widget === "utf8" ? "#lab-utf8" : "#lab"); if (el) W[current.widget](el); }
@@ -1667,6 +1735,7 @@ function route(scroll = true) {
   const ch = CH.find(c => "ch" + pad2(c.n) === h);
   const main = $("#main");
   if (ch) { main.innerHTML = renderChapter(ch); current = { route: h, widget: ch.widget }; document.title = `${pad2(ch.n)} ${ch.title} · Storyteller`; }
+  else if (h === "launch") { main.innerHTML = renderLaunch(); current = { route: h, widget: null }; document.title = "Launch post · Storyteller"; }
   else if (h === "appendix") { main.innerHTML = renderAppendix(); current = { route: h, widget: "utf8" }; document.title = "Appendix · Storyteller"; }
   else { main.innerHTML = renderStart(); current = { route: "start", widget: null }; document.title = "Storyteller LLM Course"; }
   renderNav(current.route);

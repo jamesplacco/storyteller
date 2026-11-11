@@ -21,6 +21,7 @@ p = argparse.ArgumentParser()
 p.add_argument("--name", default="")
 p.add_argument("--n", type=int, default=50, help="prompts per chat model in the evaluation")
 p.add_argument("--show", type=int, default=6, help="sample stories per model written into the report")
+p.add_argument("--showcase", default="chat.pt", help="chat model whose story goes at the top of README.md")
 args = p.parse_args()
 
 def sh(*cmd, timeout=3600):
@@ -233,5 +234,25 @@ L.append(f"```bash\ngit checkout {commit[:7]}\npip install -r requirements.txt  
          "Training on different hardware or library versions will not give identical weights. With these exact checkpoints "
          "(check the SHA-256 in `manifest.json`), greedy decoding is deterministic on a given device.\n")
 open(os.path.join(out, "REPORT.md"), "w").write("\n".join(L))
+
+# ---------------- one story and one picture for the top of the README ----------------
+SHOW_PROMPT, START, END = "Tell me a bedtime story about a frog.", "<!-- showcase:start -->", "<!-- showcase:end -->"
+readme = open("README.md").read() if os.path.exists("README.md") else ""
+if os.path.exists(args.showcase) and START in readme and END in readme:
+    with torch.no_grad():
+        text = story(load(args.showcase), f"<|user|>{SHOW_PROMPT}<|assistant|>", n=200, seed=0).strip()
+    block = [START, "## What it makes\n", f"> **\"{SHOW_PROMPT}\"**\n>", "> " + text.replace("\n", "\n> "), ""]
+    if os.path.exists("vqvae.pt") and os.path.exists("image_gpt.pt"):
+        torch.manual_seed(0)
+        with torch.no_grad():
+            frog = to_images(vq.decode_codes(generate_codes(ig, CLASSES.index("frog"), 1)))[0]
+        frog.resize((192, 192), 0).save(os.path.join(out, "showcase.png"))
+        block.append(f'<img src="{out}/showcase.png" width="192" alt="Generated 32x32 picture of a frog">\n')
+    block.append(f"Written by `{args.showcase}` ({models[args.showcase]['params'] / 1e6:.1f}M parameters, trained from scratch on this "
+                 f"repo's code)" + (", with a class-conditioned 32×32 picture from the image GPT" if len(block) > 5 else "")
+                 + f". One fixed prompt, seed 0, not picked from several tries. Full results: [{out}/REPORT.md]({out}/REPORT.md).")
+    block.append(END)
+    open("README.md", "w").write(readme[:readme.index(START)] + "\n".join(block) + readme[readme.index(END) + len(END):])
+    print("updated the showcase at the top of README.md")
 print(f"\nwrote {out}/REPORT.md, manifest.json" + ("".join(f", {f}" for f, _ in pictures)))
-print(f"Commit it with:  git add {out} && git commit -m 'Experiment report {stamp}' && git push")
+print(f"Commit it with:  git add {out} README.md && git commit -m 'Experiment report {stamp}' && git push")
