@@ -8,6 +8,7 @@ so pictures become token sequences, just like text.
 """
 import argparse, numpy as np, torch, torch.nn as nn, torch.nn.functional as F
 from PIL import Image
+from device import pick_device
 
 CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 K, D = 512, 64                   # codebook size, code vector size
@@ -104,7 +105,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--steps", type=int, default=6000)
     args = p.parse_args()
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    device = pick_device()
     torch.manual_seed(0)
     x_all, y_all = load_cifar()
     print(f"{len(x_all):,} images")

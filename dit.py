@@ -11,6 +11,7 @@ The transformer is Chapter 5's block with three changes: no causal mask, the ima
 """
 import argparse, math, torch, torch.nn as nn, torch.nn.functional as F
 from vqvae import CLASSES, load_cifar, to_images, grid
+from device import pick_device
 
 PATCH, C, LAYERS, HEADS, NSTEPS = 4, 256, 6, 8, 1000
 N_TOK, P_DIM = (32 // PATCH) ** 2, 3 * PATCH * PATCH          # 64 tokens of 48 numbers each
@@ -99,7 +100,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--steps", type=int, default=20000)
     args = p.parse_args()
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    device = pick_device()
     torch.manual_seed(0)
     x_all, y_all = load_cifar()
     model = DiT().to(device)

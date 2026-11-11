@@ -8,6 +8,7 @@ with the Bradley-Terry loss: P(chosen beats rejected) = sigmoid(r_chosen - r_rej
 import argparse, json, random, torch, torch.nn as nn, torch.nn.functional as F
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
+from device import pick_device
 
 T = 256
 
@@ -41,19 +42,20 @@ def load_reward_model(path, device):
     rm.load_state_dict(ck["model"])
     return rm.eval()
 
-def make_pair(data):
+def make_pair(data, with_word=False):
     ex = random.choice(data)
     for _ in range(100):                                   # find a story about something else
         bad = random.choice(data)
         if ex["word"] not in bad["response"].lower():
             break
-    return ex["prompt"], ex["response"], bad["response"]   # prompt, chosen, rejected
+    pair = (ex["prompt"], ex["response"], bad["response"])   # prompt, chosen, rejected
+    return pair + (ex["word"],) if with_word else pair
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--steps", type=int, default=400)
     args = p.parse_args()
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    device = pick_device()
     random.seed(0); torch.manual_seed(0)
     tok = BPETokenizer().load("tok.pkl")
     EOT = tok.special["<|endoftext|>"]
@@ -83,11 +85,21 @@ if __name__ == "__main__":
             print(f"step {step:3d}  loss {loss.item():.3f}  train acc {(r[0::2] > r[1::2]).float().mean().item():.2f}")
 
     rm.eval(); correct = total = 0
+    word_rule = longer = 0                           # two simple rules, scored on the same pairs
     with torch.no_grad():
         for _ in range(25):
-            idx, last = batch(test_data)
-            r = rm(idx, last)
+            pairs = [make_pair(test_data, with_word=True) for _ in range(8)]
+            seqs = [encode(tok, p, r) for p, c, rj, w in pairs for r in (c, rj)]
+            idx, last = pad(seqs, EOT)
+            r = rm(idx.to(device), last.to(device))
             correct += (r[0::2] > r[1::2]).sum().item()
-            total += r.size(0) // 2
+            total += len(pairs)
+            for p, c, rj, w in pairs:
+                word_rule += (w in c.lower()) > (w in rj.lower()) or ((w in c.lower()) == (w in rj.lower()) and random.random() < 0.5)
+                longer += len(c) > len(rj)
     print(f"held-out accuracy {correct / total:.2f} on {total} pairs the reward model never trained on")
+    print(f"baselines on the same pairs: 'contains the topic word' {word_rule / total:.2f}, 'longer story' {longer / total:.2f}")
+    print("These preferences are synthetic: the chosen story mentions the requested topic and the rejected one")
+    print("does not. A word check nearly solves the task, so high accuracy shows the reward model learned that")
+    print("rule, not general human taste in stories.")
     torch.save({"model": rm.state_dict(), "cfg": ck["cfg"]}, "reward.pt")

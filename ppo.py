@@ -11,12 +11,13 @@ instead (as in GRPO) removes that fourth model and works well for whole-response
 
   python ppo.py           # needs chat.pt, reward.pt, sft.json -> chat_ppo.pt
 """
-import argparse, copy, json, random, torch, torch.nn.functional as F
+import argparse, time, copy, json, random, torch, torch.nn.functional as F
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
 from reward import load_reward_model
+from device import pick_device
 
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+device = pick_device()
 random.seed(0); torch.manual_seed(0)
 P, G = 4, 4                  # prompts per iteration, samples per prompt
 p = argparse.ArgumentParser()
@@ -64,6 +65,7 @@ def rollout():
     mask = torch.tensor([m + [0] * (L - 1 - len(m)) for m in masks], device=device, dtype=torch.float)
     return seq, mask, torch.tensor(lasts, device=device), torch.tensor(groups, device=device)
 
+t_start = time.time()
 for it in range(iters):
     seq, mask, last, group = rollout()
     with torch.no_grad():
@@ -98,4 +100,5 @@ for it in range(iters):
         policy.train()
         print("   sample:", out.split("<|assistant|>")[1].split("<|endoftext|>")[0][:300])
 
-torch.save({"model": policy.state_dict(), "cfg": ck["cfg"]}, "chat_ppo.pt")
+torch.save({"model": policy.state_dict(), "cfg": ck["cfg"],
+            "train": {**vars(args), "script": "ppo.py", "from": "chat.pt", "seconds": round(time.time() - t_start, 1)}}, "chat_ppo.pt")

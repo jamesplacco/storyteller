@@ -8,6 +8,7 @@ codebook entries plus 10 class tokens. Generating after a class token draws a ne
 import argparse, math, torch
 from model import GPT, GPTConfig
 from vqvae import K, CLASSES, load_vqvae, to_images, grid
+from device import pick_device
 
 def generate_codes(model, cls, n, temperature=1.0, top_k=100):
     idx = torch.full((n, 1), K + cls, dtype=torch.long, device=next(model.parameters()).device)
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--steps", type=int, default=8000)
     args = p.parse_args()
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    device = pick_device()
     torch.manual_seed(0)
     data = torch.load("image_codes.pt")
     seqs = torch.cat([data["labels"].long().unsqueeze(1) + K, data["codes"].long()], dim=1)   # (N, 65)

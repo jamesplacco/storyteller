@@ -1,0 +1,11 @@
+# The exact versions the GitHub test run uses (Linux, Python 3.13). Optional for you:
+#   pip install -r requirements.txt -r requirements-dev.txt -c constraints.txt
+# Every experiment report also records the versions it ran with, on whatever machine ran it.
+torch==2.15.0
+numpy==2.5.3
+datasets==5.1.0
+fastapi==0.162.0
+uvicorn==0.54.0
+pillow==12.3.0
+pytest==9.1.1
+httpx==0.28.1

@@ -9,3 +9,6 @@ matmul
 __pycache__/
 .venv/
 .pytest_cache/
+
+# experiment reports are meant to be committed, images included
+!reports/**/*.png

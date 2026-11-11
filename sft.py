@@ -1,8 +1,9 @@
-import argparse, json, random, torch, torch.nn as nn
+import argparse, time, json, random, torch, torch.nn as nn
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
+from device import pick_device
 
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+device = pick_device()
 random.seed(0); torch.manual_seed(0)
 tok = BPETokenizer().load("tok.pkl")
 EOT = tok.special["<|endoftext|>"]
@@ -56,6 +57,7 @@ def get_batch():
     return torch.tensor(xs, device=device), torch.tensor(ys, device=device)
 
 opt = torch.optim.AdamW(trainable, lr=1e-3, weight_decay=0.0)
+t_start = time.time()
 for step in range(steps):
     x, y = get_batch()
     _, loss = model(x, y)
@@ -69,7 +71,8 @@ with torch.no_grad():                                   # merge adapters into W
             l = getattr(blk.attn, name)
             l.base.weight += l.scale * (l.B @ l.A)
             setattr(blk.attn, name, l.base)
-torch.save({"model": model.state_dict(), "cfg": ck["cfg"]}, "chat.pt")
+torch.save({"model": model.state_dict(), "cfg": ck["cfg"],
+            "train": {**vars(args), "script": "sft.py", "from": "ckpt.pt", "seconds": round(time.time() - t_start, 1)}}, "chat.pt")
 
 model.eval()
 idx = torch.tensor([tok.encode("<|user|>Tell me a bedtime story with a dragon in it.<|assistant|>")], device=device)

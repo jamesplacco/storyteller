@@ -1,8 +1,9 @@
-import argparse, copy, json, random, torch, torch.nn.functional as F
+import argparse, time, copy, json, random, torch, torch.nn.functional as F
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
+from device import pick_device
 
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+device = pick_device()
 random.seed(0)
 tok = BPETokenizer().load("tok.pkl")
 EOT = tok.special["<|endoftext|>"]
@@ -44,6 +45,7 @@ def seq_logp(model, x, y):
     return (tok_lp * (y != -100)).sum(-1)                 # sum over response tokens
 
 opt = torch.optim.AdamW(policy.parameters(), lr=5e-6)
+t_start = time.time()
 for step in range(steps):
     x, y = batch()
     pi = seq_logp(policy, x, y)
@@ -55,4 +57,5 @@ for step in range(steps):
     if step % 25 == 0:
         print(f"step {step:3d} | loss {loss.item():.3f} | pref acc {(margin > 0).float().mean().item():.2f}")
 
-torch.save({"model": policy.state_dict(), "cfg": ck["cfg"]}, "chat_dpo.pt")
+torch.save({"model": policy.state_dict(), "cfg": ck["cfg"],
+            "train": {**vars(args), "script": "dpo.py", "from": "chat.pt", "seconds": round(time.time() - t_start, 1)}}, "chat_dpo.pt")

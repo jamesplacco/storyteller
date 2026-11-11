@@ -1,38 +1,70 @@
 # Storyteller
 
 [![tests](https://github.com/jamesplacco/storyteller/actions/workflows/tests.yml/badge.svg)](https://github.com/jamesplacco/storyteller/actions/workflows/tests.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A complete build of Andrej Karpathy's LLM101n syllabus: a small language model that writes and
-illustrates bedtime stories, built from scratch across 17 chapters. The course site explains each
-file; this folder holds every file in its final, tested form.
+A small language model that writes and illustrates bedtime stories, built from scratch in 17
+chapters following Andrej Karpathy's [LLM101n](https://github.com/karpathy/LLM101n) syllabus: tokenizer,
+GPT, training, a C inference engine, mixed precision, distributed training, KV-cache, quantization,
+LoRA, RLHF and DPO, an image tokenizer, a diffusion transformer, and a web app.
 
 **Course site:** https://jamesplacco.github.io/storyteller/ explains every chapter, with labs that run in
-your browser.
+your browser. No install needed.
 
-Written for an Apple Silicon Mac (PyTorch `mps`), with automatic fallback to CPU. Runs unchanged
-on NVIDIA GPUs.
+**Results:** real training runs are written up in [reports/](reports/) by `report.py`, with sample
+stories, illustrations, measured speeds and checksums for every file.
 
-## Setup
+## How the pieces fit
+
+```mermaid
+flowchart LR
+    TS[(TinyStories)] --> TOK[BPE tokenizer<br/>Ch 6]
+    TOK --> PRE[Pretrain GPT<br/>Ch 7, 9, 10]
+    PRE --> SFT[LoRA SFT<br/>Ch 11, 14]
+    SFT --> RM[Reward model] --> PPO[PPO<br/>Ch 15]
+    SFT --> DPO[DPO<br/>Ch 15]
+    PRE --> C[C engine<br/>Ch 8]
+    PRE --> Q[int8<br/>Ch 13]
+    SFT & PPO & DPO --> EV[eval.py]
+    SFT & PPO & DPO --> APP[Web app<br/>Ch 12, 16]
+    CF[(CIFAR-10)] --> VQ[VQ-VAE] --> IG[Image GPT<br/>Ch 17]
+    CF --> DIT[Diffusion transformer<br/>Ch 17]
+    IG --> APP
+```
+
+The text and image models are separate. The app picks one of CIFAR-10's 10 classes from words in
+the story and draws a 32×32 picture of that class; it does not illustrate the story's details.
+
+## Two ways in
+
+| | For | Time | Downloads |
+|---|---|---|---|
+| **Quickstart** | seeing that everything works | 3 to 10 min | none |
+| **Full run** | training real models and writing a report | several hours | TinyStories (2 GB), CIFAR-10 (170 MB) |
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-dev.txt
+
+pytest -x -v tests        # quickstart
 ```
 
-TinyStories (about 2 GB) and CIFAR-10 download from Hugging Face the first time a script needs them.
+The quickstart runs every chapter's script, in order, at toy scale on synthetic stand-in data. Each
+test checks a claim the course makes: the C engine prints exactly what PyTorch prints, the KV-cache
+gives the same tokens as recomputing everything, hand-written ZeRO-1 matches AdamW, LoRA leaves the
+pretrained embedding untouched, DPO's loss starts at ln 2. On a Mac it also checks that the Apple GPU
+gives the same answers as the CPU. The same suite runs on GitHub on every push. These tests prove the
+code is correct; they say nothing about how good a trained model's stories are. That is what
+`eval.py` and `report.py` are for.
 
-## Check your setup first
+## Requirements for the full run
 
-```bash
-pip install pytest httpx
-pytest -x -v tests
-```
-
-This runs every chapter's script, in order, at toy scale on synthetic stand-in data: no downloads,
-3 to 10 minutes. Each test checks a claim the course makes, for example that the C engine prints
-exactly what PyTorch prints, that the KV-cache gives the same tokens as recomputing everything, and that hand-written
-ZeRO-1 matches AdamW. On a Mac it also checks that the Apple GPU gives the same answers as the CPU.
-The same suite runs on GitHub on every push.
+- An Apple Silicon Mac (PyTorch `mps`), an NVIDIA GPU (`cuda`), or patience on CPU. Scripts pick the
+  best device automatically; force one with `STORYTELLER_DEVICE=cpu|mps|cuda`.
+- About 5 GB of free disk. 16 GB of memory is comfortable; smaller machines are untested.
+- A C compiler for Chapter 8 (`xcode-select --install` on a Mac).
+- `constraints.txt` pins the exact versions the GitHub tests use. Each report records the versions
+  it actually ran with.
 
 ## Run order
 
@@ -59,9 +91,23 @@ Each step's output feeds the next. Times are estimates for an M-series Mac.
 | 15 | `python eval.py` | a table comparing every checkpoint | 5 to 10 min |
 | 17 | `python vqvae.py`, `python image_gpt.py`, `python dit.py` | vqvae.pt, image_gpt.pt, dit.pt | 1 to 3 h total |
 | 16 | `uvicorn app:app --port 8000`, then open http://localhost:8000 | | |
+| | `python report.py`, then commit the new folder in `reports/` | REPORT.md, manifest.json, images | 5 to 15 min |
 
-The app uses the best chat checkpoint it finds (`chat_ppo.pt`, then `chat_dpo.pt`, then `chat.pt`);
-set `CKPT=...` to choose. It draws illustrations once `vqvae.pt` and `image_gpt.pt` exist.
+The app serves `CKPT=...` if you set it, and otherwise the latest tuning stage present
+(`chat_ppo.pt`, then `chat_dpo.pt`, then `chat.pt`). That default is not an evaluation result:
+compare checkpoints with `eval.py` and choose. The page shows which model is answering.
+
+## Limitations
+
+- **Preference data is synthetic.** The reward model, PPO and DPO learn from pairs where the chosen
+  story mentions the requested topic and the rejected one doesn't. That teaches the mechanics of
+  preference tuning; it is not human judgment of story quality. `reward.py` prints how well a plain
+  word check does on the same pairs, which is nearly perfect, so read its accuracy with that in mind.
+- **The topic metric is a word match.** `eval.py` also reports finish rate, repetition and length,
+  but no automatic metric scores coherence. Read the samples.
+- **Illustrations are class-level.** 32×32 CIFAR-10 pictures, chosen by keyword, not drawn from the story.
+- **Small scale.** A 12M-parameter model trained for under two hours writes simple stories with slips
+  in logic. One training run per stage means small differences between checkpoints may be noise.
 
 ## Notes
 
@@ -77,3 +123,20 @@ set `CKPT=...` to choose. It draws illustrations once `vqvae.pt` and `image_gpt.
 - If bf16 autocast isn't supported on your macOS and PyTorch versions, train in fp32.
 - `./run model.bin tok.bin -t 0 -n 200 -i "Once upon a time"` and `python sample.py --temperature 0` print the
   same story: greedy decoding is deterministic, so C and PyTorch must agree token for token.
+
+## How this was built
+
+I built this with Claude (Anthropic's AI assistant) as a working partner: the code, tests and course
+site were written in a handful of long sessions, then checked by independent reviews and the test
+suite, which caught and fixed real bugs (see the commit history). Commits co-authored by Claude are
+marked as such. Running the chapters, training the models and writing up the results in `reports/`
+is the part I do on my own hardware.
+
+## Credits and terms
+
+- Code: MIT license, see [LICENSE](LICENSE).
+- The syllabus is Andrej Karpathy's [LLM101n](https://github.com/karpathy/LLM101n). Several chapters
+  follow the designs of his MIT-licensed projects: micrograd, minbpe, nanoGPT and llama2.c.
+- Data is downloaded at run time and not redistributed here. [TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories)
+  (Eldan and Li, 2023) is licensed CDLA-Sharing-1.0. [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)
+  is from Krizhevsky (2009). Check their terms before sharing trained checkpoints.

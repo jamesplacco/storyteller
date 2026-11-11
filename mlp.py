@@ -1,11 +1,12 @@
 import argparse, torch, torch.nn as nn, torch.nn.functional as F
 from datasets import load_dataset
+from device import pick_device
 
 p = argparse.ArgumentParser()
 p.add_argument("--steps", type=int, default=5000)
 args = p.parse_args()
 
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+device = pick_device()
 ds = load_dataset("roneneldan/TinyStories", split="train[:20000]")
 text = "\n".join(ds["text"])
 chars = sorted(set(text)); V = len(chars)

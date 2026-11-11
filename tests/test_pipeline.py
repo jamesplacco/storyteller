@@ -252,9 +252,47 @@ def test_ch16_app_streams_and_illustrates(work):
     code = ("from fastapi.testclient import TestClient\nimport app\nc = TestClient(app.app)\n"
             "r = c.post('/chat', json={'prompt': 'Tell me a story about a dog.'}); assert r.status_code == 200\n"
             "r = c.get('/illustrate', params={'text': 'a frog'}); assert r.status_code == 200\n"
-            "assert r.content[:4] == b'\\x89PNG'\n"
+            "assert r.content[:4] == b'\\x89PNG' and r.headers['X-Class'] == 'frog'\n"
+            "i = c.get('/info').json(); assert i['model'] == 'chat_ppo.pt' and i['context_tokens'] == 128\n"
+            "assert c.post('/chat', json={'prompt': 'hi', 'temperature': 9}).status_code == 422\n"
+            "assert c.post('/chat', json={'prompt': ''}).status_code == 422\n"
+            "assert c.post('/chat', json={'prompt': 'dog ' * 400}).status_code == 400\n"
             "assert '</script>' in c.get('/').text\nprint('ok')")
     assert "ok" in run(work, sys.executable, "-c", code)
+
+def test_app_explains_missing_files(work, tmp_path):
+    for f in ["app.py", "model.py", "bpe.py", "device.py"]:
+        shutil.copy(work / f, tmp_path)
+    r = subprocess.run([sys.executable, "-c", "import app"], cwd=tmp_path, capture_output=True, text=True)
+    assert r.returncode != 0 and "tok.pkl is missing" in r.stderr
+    shutil.copy(work / "tok.pkl", tmp_path)
+    r = subprocess.run([sys.executable, "-c", "import app"], cwd=tmp_path, capture_output=True, text=True)
+    assert r.returncode != 0 and "no chat model here" in r.stderr
+
+def test_device_selection(work, monkeypatch):
+    from device import pick_device
+    monkeypatch.setenv("STORYTELLER_DEVICE", "cpu")
+    assert pick_device(verbose=False) == "cpu"
+    monkeypatch.setenv("STORYTELLER_DEVICE", "tpu")
+    with pytest.raises(SystemExit):
+        pick_device(verbose=False)
+    if not torch.cuda.is_available():
+        monkeypatch.setenv("STORYTELLER_DEVICE", "cuda")
+        with pytest.raises(SystemExit, match="no cuda device"):
+            pick_device(verbose=False)
+
+def test_report(work):
+    import glob, hashlib, json
+    py(work, "report.py", "--n", "3", "--show", "2", "--name", "ci")
+    [d] = glob.glob(str(work / "reports" / "*-ci"))
+    m = json.load(open(f"{d}/manifest.json"))
+    assert m["models"]["ckpt.pt"]["sha256"] == hashlib.sha256(open(work / "ckpt.pt", "rb").read()).hexdigest()
+    assert m["models"]["ckpt.pt"]["train"]["script"] == "train.py"       # training settings travel with the weights
+    assert m["systems"]["C engine matches PyTorch (greedy, 150 tokens)"] is True
+    text = open(f"{d}/REPORT.md").read()
+    for section in ["## Setup", "## Models", "## Evaluation", "## Sample stories", "## Illustrations", "## Limitations"]:
+        assert section in text
+    assert os.path.exists(f"{d}/image_gpt.png") and os.path.exists(f"{d}/dit.png")
 
 # ---------------- Your Mac ----------------
 @pytest.mark.skipif(not torch.backends.mps.is_available(), reason="no Apple GPU")

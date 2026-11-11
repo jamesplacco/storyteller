@@ -6,6 +6,7 @@
 import argparse, torch
 from model import GPT, GPTConfig
 from bpe import BPETokenizer
+from device import pick_device
 
 p = argparse.ArgumentParser()
 p.add_argument("--ckpt", default="ckpt.pt")
@@ -15,7 +16,7 @@ p.add_argument("--n", type=int, default=200)
 p.add_argument("--temperature", type=float, default=0.8, help="0 = greedy")
 args = p.parse_args()
 
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+device = pick_device()
 tok = BPETokenizer().load("tok.pkl")
 ck = torch.load(args.ckpt, map_location=device)
 model = GPT(GPTConfig(**ck["cfg"])).to(device).eval()

@@ -11,10 +11,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - name: Install CPU PyTorch and test tools
+          python-version: "3.13"
+      - name: Install the pinned CPU environment
         run: |
-          pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install numpy pillow fastapi httpx pytest
+          pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install numpy pillow fastapi -r requirements-dev.txt -c constraints.txt
       - name: Run every chapter at toy scale
         run: pytest -x -v tests

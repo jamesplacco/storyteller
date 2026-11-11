@@ -100,6 +100,7 @@ if master:
     print(f"{n / 1e6:.2f}M params | {device} | {args.dtype} | {world} process(es) | "
           f"{B * T * args.grad_accum * world:,} tokens per step")
 
+t_start, last_val = time.time(), None
 for step in range(args.max_steps):
     t0 = time.time()
     for g in opt.param_groups:
@@ -132,8 +133,12 @@ for step in range(args.max_steps):
         print(f"step {step:5d} | loss {lv:.3f} | norm {norm:.2f} | lr {lr_at(step):.1e} | "
               f"{B * T * args.grad_accum * world / dt:,.0f} tok/s")
     if master and (step % args.eval_every == 0 or step == args.max_steps - 1):
-        print(f"           val {val_loss():.3f}")
-        torch.save({"model": raw.state_dict(), "cfg": vars(cfg)}, args.out)
+        last_val = val_loss()
+        print(f"           val {last_val:.3f}")
+        run = {**vars(args), "script": "train.py", "steps_done": step + 1, "world_size": world, "device": device,
+               "tokens_seen": (step + 1) * B * T * args.grad_accum * world,
+               "seconds": round(time.time() - t_start, 1), "val_loss": round(last_val, 4)}
+        torch.save({"model": raw.state_dict(), "cfg": vars(cfg), "train": run}, args.out)
 
 if ddp:
     dist.destroy_process_group()
