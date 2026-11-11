@@ -15,6 +15,27 @@ your browser. No install needed.
 stories, illustrations, measured speeds and checksums for every file.
 
 <!-- showcase:start -->
+## What it makes
+
+> **"Tell me a bedtime story about a frog."**
+>
+> Once upon a time, there was a little frog who lived in a meadow. The frog liked to hop and play all day. One day, the frog saw a beautiful frog. The frog wanted to play with the frog, but it was too big for her.
+> 
+> The frog asked the frog, "Can you help me find the frog?"
+> 
+> The frog said, "I can't find any way to find it. I can ask the pond for help."
+> 
+> The frog said, "You can try, but be careful. The frog needs a lot of help."
+> 
+> The frog said, "Yes, I'll help you."
+> 
+> The frog and the frog went to the pond and found a nice frog. The frog said, "Thank you, frog. You are a great friend."
+> 
+> The frog said, "You're welcome, frog. Let's play together!" So, they played together and had fun. The frog learned that helping others can make the world
+
+<img src="reports/2026-11-11-fa302ea-first-run/showcase.png" width="192" alt="Generated 32x32 picture of a frog">
+
+Written by `chat_dpo.pt` (13.9M parameters, trained from scratch on this repo's code), with a class-conditioned 32×32 picture from the image GPT. One fixed prompt, seed 0, not picked from several tries. Full results: [reports/2026-11-11-fa302ea-first-run/REPORT.md](reports/2026-11-11-fa302ea-first-run/REPORT.md).
 <!-- showcase:end -->
 
 ## How the pieces fit

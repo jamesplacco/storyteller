@@ -12,3 +12,4 @@ __pycache__/
 
 # experiment reports are meant to be committed, images included
 !reports/**/*.png
+logs/

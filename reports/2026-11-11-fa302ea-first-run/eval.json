@@ -1,0 +1,1236 @@
+{
+ "prompts": 50,
+ "max_new": 200,
+ "checkpoints": {
+  "ckpt.pt": {
+   "perplexity": 6.492682647732644
+  },
+  "chat.pt": {
+   "perplexity": 6.590887929782883,
+   "topic_word": 0.36,
+   "finished": 0.8,
+   "repeats": 0.009610352177903226,
+   "length": 174.32,
+   "samples": [
+    {
+     "seed": 0,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the forest and explore new things. One day, she saw a beautiful purple butterfly. She wanted to catch it, but her mother said no. Lily was sad and didn't know what to do. \n\nThen, a kind witch appeared and asked her if she could help. The witch said, \"Yes, I can help you catch the butterfly.\" The witch tried to pull the butterfly, but it didn't work. Suddenly, Lily's mother came to the forest and said, \"Lily, I know how to catch the butterfly. Maybe you can give it some honey.\" \n\nLily was amazed and started to feed the butterfly. She caught it in her hands and it flew away. She was very happy and felt proud of herself for being brave. From that day on, she and the witch were the best of friends."
+    },
+    {
+     "seed": 1,
+     "prompt": "Could you tell me a short tale about a cat?",
+     "topic": "cat",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little mouse who lived in a big house. He was very happy living in his cozy house, but he was always too sad for anyone to play with. One day, he decided to go for a walk in the woods. He saw a big tree and he decided to try and climb it. \n\nAs he was climbing, he saw a huge pile of dirt with little rocks. He was so excited that he wanted to climb it. But when he got to the top of the pile, he noticed that it was too deep and his fingers were bumpy. \n\nHe heard a voice calling out, \u00e2\u20ac\u0153Who\u00e2\u20ac\u2122s there?\u00e2\u20ac It was a tiny voice.\n\nThe little mouse opened his eyes and saw a friendly friendly old woman with a white beard. \u00e2\u20ac\u0153Hello! Would you like to come out for a walk with me?\u00e2\u20ac she asked.\n\nThe old woman smiled and said yes, and the little mouse was so excited to come along the"
+    },
+    {
+     "seed": 2,
+     "prompt": "Could you tell me a short tale about a kite?",
+     "topic": "kite",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "One day, two friends, Jack and their mother were walking down the street. They were looking for something special to eat. Suddenly, they saw a small bird outside the window.\n\n\"Look, Mommy! The bird is so pretty!\" Jack said.\n\nThe mother smiled. \"Do you think the bird needs some food?\"\n\nJack felt a little scared. He nodded and said, \"Yes, I think the bird is hungry!\"\n\nDad smiled. \"Let's go get some food, let's go home,\" he said.\n\nJack and his mother walked back, handing the bird to eat. It was a big, furry poppy and Jack was very happy."
+    },
+    {
+     "seed": 3,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a girl who loved to spin. She spun around in circles, spinning in circles, and even her head on the ground. One day, she wanted to make a wish, so she put on her special shoes and started to spin. She spun faster and faster, until she saw the moon. She jumped and spun until she was the moon! She spun around and around, spinning and feeling the moon ray of energy. When she was done, she ran back into the sun, spinning and twirling with joy. The world around her was so happy that she was able to make the world a better place."
+    },
+    {
+     "seed": 4,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a poor man. He was sad because he couldn't get married. So he decided to go to the park. He put on his shoes and ran to the park. When he got there, he spotted something very special. It was a big, blue train. The man was so excited that he wanted to take it home.\n\nHe ran away as fast as he could and soon he reached the station. He was so happy when he saw the man. He wanted to bring it home.\n\nHe walked inside the train and saw the station. The man called out to him: \"Do not go there!\" He ran back home and took off his shoes.\n\nThe man kept walking and soon came to the station. He was so happy to be home. He was so glad that he had been able to get the train."
+    },
+    {
+     "seed": 5,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy liked to play with his toys and eat yummy food. One day, Timmy's mommy told him they needed to go to the store to buy some ice cream. Timmy was very excited to go.\n\nWhen they got to the store, Timmy saw a big machine that was moving around. He wanted to see what was at the machine too. So, Timmy asked his mommy if he could have the special treat. His mommy said no and told him to be careful.\n\nAfter they left the store, Timmy found a pretty flower that he liked to smell. He showed it to his mommy and daddy. They thought it was the best ice cream ever. Timmy was so happy and he wanted a piece of the ice cream.\n\nBut when they got home, Timmy's room was empty. He was sad because he really wanted the flower and he didn't want it anymore. Timmy's mommy and daddy took the flower"
+    },
+    {
+     "seed": 6,
+     "prompt": "Please write a story where a kite is the hero.",
+     "topic": "kite",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Tim. Tim loved playing outside with his friends. One day, they were playing in their park when they saw a big, red ball. Tim wanted to play with the ball, but his mom said no. \n\nTim had an idea. He knew he shouldn't be sad, so he took the ball. When he got back home, he showed his mom the red ball. She smiled and said, \"Good job, Tim! You solved the problem.\"\n\nTim felt happy. He ran to his mom and said, \"Look, mom! I found the red ball!\" His mom laughed and said, \"That's great, Tim! Your little ball is as good as new.\" Tim felt proud that his mom was so smart and had a great day."
+    },
+    {
+     "seed": 7,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat olives in the garden. One day, she was playing with her favorite spoon when she smelled some fruit. She was so happy to see the olive up close.\n\nBut then, she remembered that the olive was very heavy. She tried to run away, but it was too late. The olive fell down and hurt her paw. She was very sad and cried a lot.\n\nHer mom came outside and asked her what happened. Lily showed her mom the olive and her mom said, \"Don't worry, we can fix it.\" They used a shovel and some glue. They used the olive to make the olive look good again. The olive was big and shiny, but it was now the last olive she had found. Lily was so happy and thanked her mom. They both learned that even when things seem hard, they can still be good enough to"
+    },
+    {
+     "seed": 8,
+     "prompt": "Make up a bedtime story featuring a tree.",
+     "topic": "tree",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, brown bear named Teddy. Teddy lived in a burrow with his family. One day, Teddy was walking in the woods when he heard a noise. Luckily, he saw a little bird who was stuck in a tree.\n\nTeddy wanted to help the bird, but he couldn't. He asked his friends for help, but they couldn't seem to help him. So, Teddy tried to rescue the bird. He pulled and pulled, but the bird flew up and caught him. Benny was so happy and thanked the bird.\n\nFrom that day on, Teddy and the bird became friends. They would play with Teddy and Max were the best of friends. Teddy was so happy he made a new friend to help."
+    },
+    {
+     "seed": 9,
+     "prompt": "Make up a bedtime story featuring a boat.",
+     "topic": "boat",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time there was a kind sailor. The sailor liked to sail around the sea. Every day the sailor would sit in the sun and listen to the waves.\n\nOne day the sailor was sailing, when he saw something new. It was a big boat. The sailor was so excited to have a new friend.\n\nThe sailor was very happy that he had taken the boat for the boat. He said to himself, \"Let's sail it together!\"\n\nSo the sailor and the boat sailed together. They sailed and sailed until they were tired. The sailor said to the boat, \"Let's go on an adventure to sail on the sea!\"\n\nSo the sailor and the boat sailed together, sailing back and forth. They were amazed to find a new friend.\n\nThe sailor said, \"Let's sail together again soon!\"\n\nThe sailor said, \"That sounds like so much fun!\"\n\nThe"
+    },
+    {
+     "seed": 10,
+     "prompt": "Please write a story where a robot is the hero.",
+     "topic": "robot",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play with her toys, especially her teddy bear. One day, Lily was playing with her teddy bear when she accidentally dropped it. It started to hurt and Lily started to cry.\n\nHer mommy came into the room and asked, \"What happened, Lily?\" Lily said, \"My teddy bear got hurt and couldn't do it. I just wanted to hug it.\" Mommy said, \"Then you need to be gentle with your teddy bear.\"\n\nLily felt bad and said, \"I don't want to cry, Mommy. It's okay.\" Mommy gave her a hug and said, \"Next time, let's go to the store. We can have a special present for you.\" Lily smiled and said, \"Okay, Mommy.\"\n\nAs they walked home, Lily's toy car started to sink. She accidentally knocked over a vase and the doll fell out. Lily was so happy"
+    },
+    {
+     "seed": 11,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved playing outside and pick flowers. One day, he found a pretty flower and he loved it. It was so pretty that Timmy picked it up and gave it a special flower to show him.\n\nAs Timmy played, he accidentally dropped the flower flower and broke it. He was sad and didn't know what to do. But then, his mom came to him and said, \"Don't worry, Timmy. We can fix the flower together.\"\n\nTimmy's mom smiled and said, \"I'll help you.\" She took the flower to the doctor and put it back in the garden. Timmy was so happy and he couldn't wait to play with his new flower flower."
+    },
+    {
+     "seed": 12,
+     "prompt": "Make up a bedtime story featuring a ball.",
+     "topic": "ball",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play with her toys, especially in her hands. One day, her mommy asked her to help feed the mop. Lily was scared, but she knew it was important to help her mommy by feeding the mopes.\n\nWhen they were done, Lily took care of the mopes and put them in the right spot. She showed her mommy the mop and how they could make them nice and clean. Her mommy was proud of her for being so helpful and that Lily was happy with her help.\n\nNow, Lily's stomach hurt and she was proud of herself for doing a great job. She felt proud and happy to see how happy she was. From that day on, Lily knew she needed help to be helpful and help her mommy in the right way."
+    },
+    {
+     "seed": 13,
+     "prompt": "Could you tell me a short tale about a dragon?",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl. She was only three years old and very brave. One day, she wanted to go on a walk outside. As she was walking, she saw a beautiful castle. It was so big and beautiful! She wanted to go inside and take a look inside. She was brave and she was brave, so she walked up to the castle.\n\nThe little girl was so excited to see all the people and animals. She wanted to explore everything. But, she was also curious so she started to walk towards the castle. As she moved, she felt the wind blow and the wind in her hair. She had so much fun!\n\nWhen the little girl reached the castle, she was amazed by the beauty of her. She was so excited. She spent the whole day exploring the castle, discovering the flowers and animals. She was so brave and independent when she got to explore the castle."
+    },
+    {
+     "seed": 14,
+     "prompt": "Please write a story where a rabbit is the hero.",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little rabbit named Benny. Benny loved to explore the forest. One day, Benny found a big, old tree and decided to climb to the top. He felt uncomfortable. \n\nBenny climbed the tree and saw many animals. He saw many animals and met a rabbit who wanted to join in. Benny ran and jumped and laughed. But then, he saw a big, scary bear coming towards Benny.\n\nBenny was so scared that he screamed out for the bear. The bear ran away and Benny felt safe. He learned that it's okay to ask for help from someone who is in trouble."
+    },
+    {
+     "seed": 15,
+     "prompt": "Could you tell me a short tale about a star?",
+     "topic": "star",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy who loved ice cream. Every day, he would sit outside and chew on a big cone outside. \n\nOne day, he went outside to play with his friends. They were all so excited to play and having lots of fun! They went to the ice cream ice cream and enjoyed the delicious taste. \n\nAfter their ice cream, the little boy felt very happy. He was so amazed by the ice cream he wanted to have. But his friends were not happy and they were not angry anymore. When the boy and his friends clapped and cheered and clapped. \n\nAfter the ice cream, the little boy's friends were all sad to leave. The little boy felt happy that he had helped his friends. He knew that even when he wanted some ice cream, he could always count on his friends to help him."
+    },
+    {
+     "seed": 16,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, fat dragon. He lived in a big, green forest with his friends. One day, while he was out walking, he saw some creatures crawling on a rock. \n\n\"Look, a bunny!\" said the dragon. \n\n\"Yes, it's myself!\" said the friendly dragon. \n\nSuddenly, the dragon started to roar. \"Why are you there?\" asked the dragon. \n\nThe dragon didn't answer, but the dragon kept on barking. \"Roar! Come back!\" \n\nThe dragon said. \"But I'll protect you!\" and he grabbed the bunny's paw and he ran away. \n\nThe dragon was very happy and thanked the dragon for protecting him. From then on, the dragon would always protect the dragon's friends in the forest."
+    },
+    {
+     "seed": 17,
+     "prompt": "Make up a bedtime story featuring a car.",
+     "topic": "car",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. One day, she went to the park with her mom. They saw a big slide and Lily wanted to go down it. She took off her shoes and went down the slide. \n\nAs they got up, Lily's mom called her to go say hello. Lily didn't want to say hello or play with her mom. But when they got to the park, Lily saw a man wearing a suit and a hat. She asked him, \"What's that?\" \n\nThe man said, \"That's a hat, Lily. You need to wear it.\" Lily didn't want to wear a hat, so she said, \"Okay, I won't wear it anymore.\" The man said, \"It's okay, I'm proud of you for being honest. You make a good choice.\"\n\nLily smiled and felt happy that the man was nice. From that day on, she never"
+    },
+    {
+     "seed": 18,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time there was a boy called Ben. He liked the train very much. One day, he was playing on his train when he heard a loud noise. He turned around and he saw a big train. He was scared but he was also very curious.\n\nHe grabbed his dad's hand and said, \"Dad, can you fix my car? I want to show you how big it is.\" His mom smiled and said, \"Yes, Ben, I can help you fix it. I can tell your friends that it's okay to fixing things.\"\n\nSo Ben and his family got to work. He put all the toys in the driver's seat, the train around the train. Now the cars had all fixed, and he was ready to go. Soon, they all smiled and went for a ride. Ben was happy he could help his new friend."
+    },
+    {
+     "seed": 19,
+     "prompt": "Could you tell me a short tale about a kite?",
+     "topic": "kite",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy. He was very persistent. Every day he would go outside and play with his kite.\n\nOne day, the little boy was so excited to try it, he started to pull it around. It was a bit too hard for his feet, but he managed to do it in a loud struggle and he managed to pull it onto the ground.\n\nThe little boy was having so much fun with his kite. He kicked it really high and felt like he was catching his kite. But then the kite started to spin a secret shape. The little boy felt very embarrassed.\n\nThe string flew over the little boy. He stopped and looked at the kite. Then he said, \"It looks like the kite is spinning so fast! Thank you for the fun day!\""
+    },
+    {
+     "seed": 20,
+     "prompt": "Make up a bedtime story featuring a cat.",
+     "topic": "cat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She had a big, fluffy cat named Mittens. One day, Lily's mom asked her to go to the park to play. Lily was excited to go on the swings and ran around. \n\nAt the park, Lily saw a big building. She wanted to see what was there. She asked her mom if she could go inside. Her mom said, \"Yes, let's go.\" \n\nBut as they were walking, Lily tripped on a rock and fell. She hurt herself badly and couldn't go to the hospital. Lily started to cry and cried. Her mom came running and hugged her. Lily was so sad that she had lost her favorite toy, but she knew that Mittens had kept her promise."
+    },
+    {
+     "seed": 21,
+     "prompt": "Please write a story where a dog is the hero.",
+     "topic": "dog",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big dog. The dog was brown and had a long tail. He liked to play with his friends. They would run and jump and have fun. One day, the dog found a small bone in the ground. The dog was very happy and wanted to play with it.\n\nAs the dog was playing, he saw a little girl sitting under the tree. She was barking and running very fast. The dog wanted to play with the little girl, so he ran towards her. The little girl saw the dog and said, \"Hi, dog! Can I play with you?\" The dog wagged its tail and went over to the little girl.\n\nThe little girl and the dog played together all day. They had so much fun playing with each other. The dog saw the little girl playing with the dog. They had so much fun and became good friends. The dog and the little girl became best friends and played together every day."
+    },
+    {
+     "seed": 22,
+     "prompt": "Make up a bedtime story featuring a moon.",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the woods near her house. One day, she heard a loud sound like a big truck in front of her house. She turned and saw an old man standing on the window. \n\n\"Hello, little girl. Do you want to play with me?\" asked the old man. \n\nLily was so excited to play with the old man. \"I am a doctor. I know to talk to my parents. They are playing a game,\" said the old man. \n\nLily was very happy. She ran and played with her friends all day. The old man told them about the old man and the box he loved. Lily felt very proud and happy. From that day on, whenever she saw the old man, she would always be there to help the old man."
+    },
+    {
+     "seed": 23,
+     "prompt": "Make up a bedtime story featuring a dog.",
+     "topic": "dog",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "One day, a little dog named Spot found a shiny blue ball in the grass. He wanted to play with it, but it was too small. Spot asked his mom for a new ball. His mom said, \"I can help you find the ball.\"\n\nSpot thought about it and decided to try something new. He asked his mom for help. They looked in the window and saw the shiny blue ball. Spot was so happy. He said, \"Mom, can I play with my new ball?\" His mom smiled and said, \"Yes, Spot, you can play with the yellow ball! Let's play together!\"\n\nThey played with the pink ball and the yellow ball for a while, then Spot had to share with his friends. He made new friends and had lots of fun. Spot was happy again."
+    },
+    {
+     "seed": 24,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a boy named Jack. Jack loved to play with his toy train. He would take it everywhere he went. One day, Jack wanted to get the train to finish. He asked his mom if he could have the train.\n\nHis mom said yes and Jack got to work. He put the train on the tracks and drove to a different place. When he got to the train, he was so proud of the different kinds of trains. He knew that the train was the most important thing in the world.\n\nAfter a few minutes, Jack's mom came back to catch him. She said it was time to go home. Jack was sad that he had been careless. \n\nBut his mom said it was time to go home. They said it was time for dinner. Jack was sad but he knew he would always be careful about the train."
+    },
+    {
+     "seed": 25,
+     "prompt": "Make up a bedtime story featuring a cake.",
+     "topic": "cake",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a small girl named Lily. She loved to eat pasta for dinner. One day, her mommy made pasta for spaghetti for dinner. Lily was so happy and ate her pasta.\n\nLater that day, Lily went to the park to play with her friends. She saw a big dog and said, \"Hello dog, do you want to play with me?\" The dog barked and ran away. But then, a kind boy came by and said, \"Do you want to play with me?\" Lily was happy and said, \"Yes, I want to play with you.\" The boy said, \"Let's play a game!\" They played the game and had fun.\n\nAfter that day, Lily's mom said, \"Lily, let's play again tomorrow.\" Lily was happy and said, \"Okay, let's play again soon!\" Then, she went home, feeling grateful for her friend."
+    },
+    {
+     "seed": 26,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little bird called Chirpy. Chirpy loved to sing and sleep all day long. One day, Chirpy saw a picture of a big box. Chirpy asked the picture to open it, but the picture did not open. Chirpy was sad and didn't know what to do.\n\nThen, a kind farmer saw Chirpy and asked, \"What is wrong with?\" Chirpy said, \"I have a cut on my leg.\" Chirpy said, \"I am sad because I can't open it.\" Chirpy wanted to help Chirpy, so he tried to open the box. Inside, he found some rocks, but it was not. Chirpy was very happy and said, \"Thank you, Mr. Bob, for helping me.\" From that day on, Chirpy and Chirpy were the best of friends."
+    },
+    {
+     "seed": 27,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, shiny ball. The ball loved to play with the ball. It would roll and roll over the big, sunny air. The ball was very happy when it rolled.\n\nOne day, the ball saw a little girl sitting on a bench. The girl looked sad. The ball had lost her little toy. The girl wanted the toy to help. The girl saw the ball and said, \"I can help you find your toy.\" The ball tried to stretch its legs, but it was too heavy for the girl.\n\nThey looked and looked, but they could not find the toy. The girl said, \"I will help you!\" The ball lifted its tail and the girl was very happy. The ball and the girl played together, and the girl was happy. The girl was not sad anymore, and the girl and the dog were happy too. The girl and the dog became friends forever, and they played together every day."
+    },
+    {
+     "seed": 28,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a big, hairy bear named Teddy. Teddy lived in a little house with his mommy, daddy, and his cat, Lily. Teddy loved to play outside in the sun.\n\nOne sunny day, Teddy and his mommy went to a very special place. It was a sunny day and Teddy's mommy and daddy were very happy. They put on their warm clothes and went for a walk.\n\nAs they walked, they saw a butterfly and it made them laugh. Timmy wanted to make the butterfly a special party. He loved playing in the sun and eating candy. His mommy and daddy always told him that everyone made the world a better place to play in the sun.\n\nThe moral of the story is that when you make mistakes, you can make a big difference in someone's life."
+    },
+    {
+     "seed": 29,
+     "prompt": "Please write a story where a cake is the hero.",
+     "topic": "cake",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside and pick flowers in the garden. One day, she found a jar of wine in the garden. She was so happy and started to scatter it on the grass.\n\nSuddenly, she heard a loud noise coming from the garden. It was a small bird, crying in the sun. The bird was scared and flew away. The family tried to help the bird, but it was too late. The bird had passed away!\n\nLily was sad because she didn't know how to make new friends. Luckily, a kind and gentle butterfly came and offered the flower back to the garden. The flower was happy and ate the wine again. Lily was so happy that she could help the bird. From then on, she made sure to be more careful and to watch out for any other animals in the garden."
+    },
+    {
+     "seed": 30,
+     "prompt": "Could you tell me a short tale about a rabbit?",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a fox who lived in the forest. The fox had a big, soft fur, which he loved to pick up things like the birds.\n\nOne day, the fox met a rabbit. The rabbit was only three years old and she said \"hello\" to the fox.\n\nThe fox smiled and said \"Hello, little rabbit\". The rabbit said \"Hello, Is anyone here!\".\n\nThe fox smiled and said \"Hello, who are you?\"\n\nThe rabbit said \"I just want to be friends.\"\n\nThe fox said \"I am your friend. I can be your friend\".\n\nThe fox said \"Hello\". The fox said \"Do you want to be friends with me?\"\n\nThe fox said \"Yes, I want to be your friend\".\n\nThe fox said \"Hi! What is your name?\"\n\nThe fox said \"I'm the bear. I have a nice voice that I love to be your friend.\"\n\nThe fox"
+    },
+    {
+     "seed": 31,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time there was a little boy named Tommy. Tommy liked to play outside and explore the world around him. One day, he got very excited to find a place where he could go to school. \n\nAs he arrived home, Tommy's mommy bought him a new toy. Tommy was so excited and couldn't wait to play with it. It was so big that it wasn't too tall or too far away. \n\nThen, Tommy came back home and his mommy put him in a special place where he could write. Tommy was so proud that he had found a place to write news. He loved learning new things and was always so curious about it."
+    },
+    {
+     "seed": 32,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a big, strong lion named Leo. Leo loved to run and jump all day long. One day, Leo's friend, a rabbit, came to visit him.\n\n\"Hi, Leo! Do you want to play a game with me?\" asked the rabbit.\n\n\"Yes, let's play!\" said Leo. \"I am mighty!\"\n\nLeo and the rabbit played a game together and had so much fun. They became the best of friends and did lots of fun games.\n\nWhen the game was over, Leo and the rabbit had to go back home before the big lion left. Leo took off his big, heavy yawn and went to sleep. He was very happy to have a new friend to play with and have fun with."
+    },
+    {
+     "seed": 33,
+     "prompt": "Please write a story where a train is the hero.",
+     "topic": "train",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a boy named Timmy. Timmy loved watching TV. He had a big red TV that kept his favorite cartoons. One day, Timmy's mommy told him it was time for a nap. Timmy didn't want to sleep because he wanted to sleep. \n\n\"Can you please, mommy?\" Timmy asked. \n\n\"Sure, Timmy.\" replied. \"I can sleep with you and I can sleep in my red TV.\" \n\nSo, Timmy and his mommy sat down in his seat and enjoyed the fine morning. It was a fun day for the happy family. Timmy felt a little sleepy, but he knew he would have a great day at the fun day soon."
+    },
+    {
+     "seed": 34,
+     "prompt": "Make up a bedtime story featuring a flower.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat jam and always asked her mommy to make her some jam. One day, her mommy asked her to help cooking the jam. Lily wanted to help her mommy, so she asked her mommy to help.\n\n\"Mommy, can you help me?\" Lily asked.\n\n\"Of course, Lily. Let's ask the teacher for some jam,\" her mommy said.\n\nLily helped mommy mix the jam into the jar with a big knife. She was very happy and ate the jam. While they were eating, Lily noticed that she wasn't watching again. She told her mommy and daddy about the jam she needed to be patient and wait.\n\nLater that day, Lily's mommy asked her to help clean the kitchen. Lily didn't want to, but she knew it was dangerous. So she asked her mommy and daddy to finish the jam. They cut it and it was delicious! Lily was so"
+    },
+    {
+     "seed": 35,
+     "prompt": "Make up a bedtime story featuring a flower.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She was very curious and wanted to know what was on the other side of the world. One day, she went to the park with her mommy. She saw a big, colorful butterfly with wings and a long beak. \n\nLily's mommy said, \"Let's observe the butterfly and see if it blooms.\" Lily nodded and then pointed to the butterfly. Her mommy said, \"Be careful, Lily. The butterfly is very delicate.\" \n\nLily observed the butterfly and saw it fluttering around. She said, \"Wow, that's so pretty! Can we see it?\" Her mommy smiled and said, \"Sure, let's observe it together.\" \n\nLily and her mommy observed the butterfly together. They saw that it was so pretty and pretty. They stared at it for a while, but then Lily said, \"Wow, it's so beautiful! I want to observe"
+    },
+    {
+     "seed": 36,
+     "prompt": "Make up a bedtime story featuring a tree.",
+     "topic": "tree",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "One day, a little girl named Lily went to the park with her mom. She saw a big tree with lots of fruits and fruits. \"Look, mom, I found some fruits!\" she said.\n\nHer mom smiled and said, \"That's a great choice, Lily. I'm so glad you like them.\"\n\nLily was very happy to get a candy and went home to eat her food. As she was eating, she heard a loud noise. \"What's that noise?\" she asked. \n\nHer mom replied, \"That's not a dog, Lily. It's just an elderly woman who was coming to the park. He's barking loudly, and he's trying to find a healthy place.\" \n\nLily felt very happy and grateful for her mom's help. She realized that being compassionate was the best thing to do. It just needed to be healthy and healthy. From that day on, Lily knew that listening to her mom was"
+    },
+    {
+     "seed": 37,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to walk around his house. One day, Timmy was walking through the woods when he saw a big black cat. The cat was barking a lot and Timmy had to stay close to her. \n\nAs he was walking, he saw a little bird that was scaring away from him. The bird had big teeth and looked scared. Timmy knew he had to be brave and stay away from the cat. \n\nAs he walked away, Timmy realized that the black cat was scared and ran away. But the bird was very strong and chased him until it was too far away. Timmy was so happy that he could walk around his yard. \n\nFrom that day on, Timmy made sure to never go into a deep house without any more fierce animals. He was happy that he could help his new friend, even if they were scared and free."
+    },
+    {
+     "seed": 38,
+     "prompt": "Make up a bedtime story featuring a car.",
+     "topic": "car",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once there was a small boy. The boy was always so excited to go to the park. He loved going to have a picnic with his family. On the way, the boy's mom said it was time to find a delicious cake for him.\n\nThe boy was so excited. He started to climb the steps. He had to pick a yummy cake for his family and they both ate it. After they finished eating, they both sat down on the bench.\n\nThey hugged each other and said goodbye. They had had a wonderful picnic. The End."
+    },
+    {
+     "seed": 39,
+     "prompt": "Make up a bedtime story featuring a rabbit.",
+     "topic": "rabbit",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a big blue balloon. The balloon had two friends, Jack and Jill. They both loved playing with the balloon every day. One day, Jill wanted to wear the balloon, but Jack didn't want to wear it. Jill was sad, so she decided to go to the shop.\n\nInside the shop, Jack saw a big red balloon. He knew it was very cheap. So Jill put the balloon in her pocket.\n\nJack was so happy. He thanked Jill and they went to find the cheap balloon. They looked everywhere, but Jack was nowhere to be found. After a while, Jack gave the balloon a big hug and said goodbye.\n\nJill was so happy that she had a new balloon. She thanked Jack with a big smile and said, \"This is the best balloon ever!\""
+    },
+    {
+     "seed": 40,
+     "prompt": "Could you tell me a short tale about a flower?",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, Lily's mommy said, \"Lily, we need to go inside now!\" But Lily was stubborn. She wanted to play outside in the sun. \n\nLily's mommy said, \"Be careful, Lily. The sun is shining and it's going to rain soon.\" Lily listened and forgot all about the rain. She saw a big tree with many leaves. She saw a branch that had fallen down. \n\nLily's mommy said, \"There's a little branch that hurt you.\" Lily helped her mommy sit on the branch and they sat under a tree. She was so happy that she listened to her mommy's rules. From that day on, Lily knew that if she ever needed help, she could always ask for help when she went outside to play in the sunshine."
+    },
+    {
+     "seed": 41,
+     "prompt": "Make up a bedtime story featuring a ball.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, round ball. The ball loved to play with its friends. They would throw the ball high in the air and run around. They had lots of fun together.\n\nOne day, a little boy named Tim found a small basketball. He was so excited to play with it! He threw the ball up to it, and it went up and down. Tim was so happy with his new basket. He chased it around the yard, chasing it, and chasing the ball in the air.\n\nAfter a while, Tim saw his friends playing with a ball. He had so much fun. They played with the ball and had a great time. Tim was happy because he knew that his friend liked to play with him too."
+    },
+    {
+     "seed": 42,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once there was a boy named Joe. Joe was only three years old. One day, Joe went to the park with his mom. He was so excited to play!\n\nWhen he got there, Joe saw a big, round object. It was a coin! Joe was so excited and he started to play with it. He picked up the coin and held it tight.\n\nJoe was having so much fun playing with the shiny thing. He played with it all afternoon. The coin fell into a tree and began to crack. Joe was so happy.\n\nWhen it was time to get home, Joe put the coin in the tree. His mom gave him a hug and said, \"You did a great job, Joe!\" Joe felt so proud of himself. He had a happy day with his brilliant friend."
+    },
+    {
+     "seed": 43,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "One day, a little girl named Sue found a big box of crayons. She wanted to draw a picture on the box. Sue thought it was a pretty picture. She picked the box and started to draw with it.\n\nSue's friend, Tom, came to play. She saw the picture and said, \"Wow, you look great!\" Tom laughed and said, \"Thank you, Sue!\" Tom was happy with his drawing.\n\nSue and Tom played with the crayons together. They drew a big picture of a big, red light. They put the drawing in the room to make a picture. Then, they sat down and laughed. Sue's drew a sun, and Tom's picture became a rainbow. They both wanted to draw more pictures.\n\nThe sun had set and the picture was happy. Sue and Tom played with the big sun all day. They were the best of friends. And they lived happily ever after."
+    },
+    {
+     "seed": 44,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to bake with her mommy. One day, they decided to make a cake with a big, juicy pie. Lily's mom said they could have a race to see who was a fastest, and they all started to run around the room.\n\nLater that day, they heard a noise outside. Lily's mommy said they were going to hide in the house because they had to leave before they got out. Lily was sad and started to cry. Her mommy picked her up and said they were almost done. Lily was upset and didn't want to wait.\n\nThe next day, they went back to the house and played with their colorful bowls. Later, Lily's mommy made some delicious cookies and said they were the best cookies ever. Lily was happy again and she got to finish her delicious cake."
+    },
+    {
+     "seed": 45,
+     "prompt": "Please write a story where a car is the hero.",
+     "topic": "car",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to play with his toys, especially his toy car. One day, Timmy's mom gave him a toy car to play with. Timmy was so happy and he played with it all day.\n\nBut then, Timmy's little sister came in and accidentally broke the car. Timmy was sad because he really wanted the car. But his mom said, \"Don't worry, we can fix it more about fixing the car.\"\n\nTimmy was happy again and they fixed the broken car. When they were finished, Timmy went to play with his toy car, but his little sister accidentally broke something. Timmy's mom told him that sometimes good things happen and that's okay to ask for help. Timmy felt better and knew he was still a good friend."
+    },
+    {
+     "seed": 46,
+     "prompt": "Make up a bedtime story featuring a cat.",
+     "topic": "cat",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved playing with clay. One day, she was playing with her clay friend when she accidentally spilled it on the floor. \n\n\"Oh no! My clay is broken!,\" her mom said.\n\nLily felt very sad and knew she couldn't fix her clay. She asked her mom if she could help fix it. Her mom said, \"Of course, my dear. Let's go to the store and get some glue.\" \n\nAt the store, Lily's mom took out some glue and the glue was fixed. Lily was so happy that she could help her mom. She put the glue on the clay and it looked perfect as new again. She was very happy and thanked her mom."
+    },
+    {
+     "seed": 47,
+     "prompt": "Could you tell me a short tale about a boat?",
+     "topic": "boat",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She had a big sail and loved to sail in the bathtub. One day, she saw a thief in the water and got angry.\n\nLily went to the thief and scared her. The thief chased the thief away and soon Lily was saved!\n\nThe thief was very happy and ran to Lily. He said, \"Hey, I'm sorry, you were ruining my fish. Can I keep it?\" Lily was scared and said, \"No, you can't. It's mine.\" The thief felt bad and left.\n\nLily was very upset and cried. She wished she had the whale to save her. From that day on, Lily made a new friend and never got a person again."
+    },
+    {
+     "seed": 48,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a cute little boy named Timmy. Timmy loved to play outside and explore. One day, he went for a walk in the woods. He met a small birdie and asked if he could borrow it. The birdie said no, but Timmy was happy.\n\nAs they walked, they found a big, brown bear. The bear was sleeping in a cave with lots of leaves. Timmy wanted to take the bear home with him, but the bear was too big and ran away. Timmy was sad again.\n\nBut then, Timmy remembered that the bear was right. He decided to let it go, so he would take it with him. The bear was happy again, and Timmy felt happy to have a friend like this. They played together all day, and Timmy was not lonely anymore."
+    },
+    {
+     "seed": 49,
+     "prompt": "Please write a story where a bird is the hero.",
+     "topic": "bird",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "One day, a little boy named Tim found a bone on the ground. He wanted to play with it, but his mom said, \"No, Tim. It is not safe. Let me see.\" But Tim was not careful. He picked up the bone and ran to his mom.\n\nAt the park, Tim played with his ball. It was a hard game. He threw the bone, and it went up and down. Tim was happy. He wanted to play with his ball and his mom, but she said, \"No, Tim. We can play. We can play together.\"\n\nTim was happy. He played with his ball and saw a big tree. He wanted to climb the tree. He said, \"Okay, I will climb the tree.\" Tim pushed the branch and the ball started to climb. They had so much fun together. Tim learned that sometimes, we can make the world a better place."
+    }
+   ]
+  },
+  "chat_dpo.pt": {
+   "perplexity": 6.647718401848205,
+   "topic_word": 0.96,
+   "finished": 0.7,
+   "repeats": 0.018753786317608427,
+   "length": 177.78,
+   "samples": [
+    {
+     "seed": 0,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once there was a little boy. He was three years old and he loved the moon. Every day he asked his mom to get him a special moon and if he could take him with him.\n\nOne day, he was at the moon and he asked her if he could go to the moon. She loved the moon very much and they loved it.\n\nThe little boy said yes and he brought his toy a big smile. The moon was bright and he could not believe his eyes. He told the little boy how much fun it was to go there.\n\nThe little boy and the moon went back to the moon every day. They would play and laugh together until it was time to go home.\n\nThe little boy kept exploring every night, until one day he found a big, blue moon. He felt so excited that he ran back to the moon to tell his mom.\n\nThe little boy waved his toy moon, and he knew that the moon was very light."
+    },
+    {
+     "seed": 1,
+     "prompt": "Could you tell me a short tale about a cat?",
+     "topic": "cat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a cat. The cat had a big, blue tail. The cat liked to play with its tail all day. One day, the cat saw a big cat. The cat wanted to play with the cat.\n\nThe cat said, \"Hi, cat. Do you want to play?\" The cat said, \"Yes, let's play.\" The cat and the cat played and had fun. The cat and the cat were very happy.\n\nAfter playing, the cat and the cat became good friends. They played together every day at the same game. The cat and the cat had many fun in the big, red field. They were never hungry or happy."
+    },
+    {
+     "seed": 2,
+     "prompt": "Could you tell me a short tale about a kite?",
+     "topic": "kite",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big kite. It was so happy to fly high in the sky. The kite was so excited that it could jump up and down and fly high!\n\nThe kite started to fly very high and flew higher and higher. It was so high up that it was going so fast! But still the kite felt so happy and flying.\n\nBut then, the kite began to get tired and couldn't fly anymore. It was so tired, but then it was so happy it started to dance too.\n\nThe kite's kite flew so high, it could not hear it anymore. It was flying high and far away from the wind.\n\nThe kite was so happy that it flew all the way back into the sky and back to its kite. It had made it so much fun!"
+    },
+    {
+     "seed": 3,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a bright orange moon. The moon shone brightly and sparkled in the sun. Byan was so excited as he explored it.\n\nSuddenly, the moon disappeared! Byan looked up and saw a beautiful fairy flying in the sky. She waved with a smile.\n\nThe fairy flew around in the sky, and then a big wave came and made her to the moon. Byan was so happy and excited.\n\nBut then, the moon started to get too close. Byan was so sad. The fairy waved goodbye and flew away.\n\nThen, Byan saw the moon. She waved goodbye and the fairy flew away. Byan waved goodbye and ran back to the moon, feeling sad and alone.\n\nByan thought about the magical moon. He waved goodbye and went back to his distant moon, eager to explore it."
+    },
+    {
+     "seed": 4,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a powerful engine. The engine was brave and strong, so he went on a train ride. The engine was mighty, with lots of lights, cars and people who saw the most amazing things. \n\nOne day, the engine stopped and saw something very interesting in the station. In the station was a huge train and they were going to take it for a ride. The engine was excited and hopped into the train with it in his hands. \n\nThe engine rode in the engine all the way to the station, but, the engine never stopped. The station was a small train, and they were all on the way. \n\nThe engine had saved and the driver was very happy. He knew he had been too strong, and he could be very strong. \n\nThe engine rode off, feeling like he was able to move on a powerful train. And he was ready to ride the train."
+    },
+    {
+     "seed": 5,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a little boy named Lily. Lily had a furry costume and loved to play with her toys. One day, Lily's mom took her to a big castle. Lily was so excited to see all the other princess toys, but she was scared to go inside. \n\nLily's mom took her to a party and Lily saw a scary monster wearing a beautiful dress. She asked her mom, \"What's that big, scary monster?\" Her mom replied, \"It's just a girl who ran away from my kingdom.\" \n\nLily felt scared and didn't want to leave the weird monster. She wanted to go in the castle, but she was worried it would be bad. But her mom had an idea and asked Lily to go in the castle. They looked inside and saw a big, scary monster. \n\nLily was scared and tried to run. But the monster was strong and she was brave enough to go out. Lily was scared and"
+    },
+    {
+     "seed": 6,
+     "prompt": "Please write a story where a kite is the hero.",
+     "topic": "kite",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a delicate kite. The kite was red and it was very high. It was so happy to be with its family.\n\nOne day, the kite wanted to go on the big, green kite. So the kite tried to tie it around the kite. It moved very fast.\n\nThe kite flew from the kite, but it was too hard. The kite was sad. It wanted to be able to fly.\n\nThen, the pilot saw a big, red kite. The kite had an engine. The kite was too small to push it around the kite. So the kite flew over the neighbor's house.\n\nThe kite was happy and flew around the neighborhood. They were best friends! But then, it started to rain. The kite had to stop and flapped its arms and legs. The kite was sad and missed its family."
+    },
+    {
+     "seed": 7,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, red flower. The flower lived in a garden. The flower was very pretty because it was the best flower in the world. One day, a big, mean monster came to the flower. The monster got scared and ran away. The flower was scared and sad.\n\nA kind girl saw the flower and knew what to do. She picked up the flower and brought it back to the girl. The girl was very happy and gave the flower a big hug. The flower and the girl became friends. They played in the garden every day.\n\nOne day, the girl went back to the garden. She ran and ran, and the bug was not alone in the garden. The girl was very happy to see the flower. The flower and the girl became good friends. They played and the bug was not so bad after all. They were happy and had a good time together."
+    },
+    {
+     "seed": 8,
+     "prompt": "Make up a bedtime story featuring a tree.",
+     "topic": "tree",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time there was a beautiful tree. It sat in a tree where it felt like it was the sun was shining brightly. The tree was happy and it liked to spread the sunshine on the branches.\n\nOne day when the tree was near the tree, the wind blew and the wind blew away so far away. Everyone was sad to see the tree and they wanted to stay there forever.\n\nBut then one day, a kind old man came along. He had the umbrella and had a big smile on his face.\n\nHe asked the tree to help. He took the umbrella back to the tree and the woman waved it around. The woman put the umbrella on the tree and carefully placed it on the ground.\n\nThe old man smiled, and he made a promise to spread the umbrella."
+    },
+    {
+     "seed": 9,
+     "prompt": "Make up a bedtime story featuring a boat.",
+     "topic": "boat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time there was an exciting boat. It sailed across the ocean and saw lots of other boats. It made them all happy and excited.\n\nAt the end of the boat met a man who asked her to take him on an adventure. The boat said yes, and the boat set off on adventure.\n\nThe boat sailed for a long time. After a long time at the beach, the boat finally came to a big lake. It was filled with fish and had some beautiful golden sails!\n\nThe boat had revealed a magical trip. They sailed and sailed until they reached the water. Then they got on the boat and went to the shore.\n\nThe boat had a wonderful adventure. After that, they sailed back to the shore, full of joy and friendship."
+    },
+    {
+     "seed": 10,
+     "prompt": "Please write a story where a robot is the hero.",
+     "topic": "robot",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a robot who loved to play with toys. One day, the robot was playing with his toys when he was playing outside. The robot was very fast and the driver was a hero.\n\nThe robot noticed that the robot was having a bad guy. The robot was very loud and chased the robot around the yard. The robot was very fast and could not catch up. The robot got scared and ran away as fast as he could.\n\nThe end."
+    },
+    {
+     "seed": 11,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a little bug named Nutty. He was a very good pet and he loved very much. One day, he saw a big, juicy flower that he really wanted to try. He wanted to have the bite, but he knew it was too much.\n\nNutty decided to use the flower to pick up the flower. He tried again, but it didn't look perfect. He got so sad and sad. He wanted to share the flower with his friends.\n\nThen, he remembered that he had a special gift for his friends. He went to his friend and asked if he could open it, but his friend didn't want to. Nutty was sad and didn't know what to do.\n\nBut then, he saw that the flower was very flexible and he picked it up. He put it in his pocket and showed it to his friends. They were very happy and thanked him. From that day on, Nut"
+    },
+    {
+     "seed": 12,
+     "prompt": "Make up a bedtime story featuring a ball.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Sue. Sue loved to play with her ball outside. One day, she saw a big ball in the yard. The big ball was shiny and had a skull on it. Sue was very happy to see the ball.\n\nSue ran to the ball and kicked it with her hands. The ball flew into the air and made a loud noise. Sue was scared and didn't know what to do. She ran inside to her mom and hugged her tight. Her mom hugged her and told her not to worry.\n\nSue learned that sometimes we have to put up things we don't know, we can't do it. She was happy to have a friend to play with. She looked at the ball and thought about it all about it. Sue learned that even though everything looks fun, we can still play outside. The end."
+    },
+    {
+     "seed": 13,
+     "prompt": "Could you tell me a short tale about a dragon?",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a dragon. He was a big, strong dragon and he wanted to go on an adventure. So, he asked all of his friends. \n\nA few friends agreed to take the dragon to the dragon's cave. They all hopped inside and had lots of fun. \n\nThe dragon's friends soon found the dragon's copper. They were so excited to have their copper back attached to its cave. \n\nAfter their fun on their adventure, the dragon was tired. He snuggled up in his cozy cave and knew he would be back soon."
+    },
+    {
+     "seed": 14,
+     "prompt": "Please write a story where a rabbit is the hero.",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a rabbit named Bab. Bab loved to play in the forest with his friends. One day, he found a big, open field with lots of food. He had a big rabbit, a small, fluffy rabbit. The rabbit saw Babur and said, \"What is that?\"\n\nBab said, \"I don't know, let's hide the rabbit and eat the food!\"\n\nBab said, \"Why not? I like carrots and carrots.\"\n\nBut Bab said, \"Don't worry, Bab! I'll hide the rabbit and you'll find you!\" He hid the rabbit under a big bush and waited. Finally, the rabbit found the rabbit's. Babird looked everywhere, but he could not find him.\n\nThe rabbit said, \"Bab, where are you? I will find you!\" He looked all around the forest,"
+    },
+    {
+     "seed": 15,
+     "prompt": "Could you tell me a short tale about a star?",
+     "topic": "star",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a little boy who wanted to go on a great adventure. So he set off on an adventure. He took his tickets and marched out of his house. \n\nWhen he arrived at a beautiful, white star and it seemed like a star. Then he saw a star on the ground and he wanted to touch it. He asked his mom, \"Can I stay here?\"\n\nHis mom said, \"No, sweetheart, you can't stay here.\"\n\nBut the little boy was very worried. The stars were so brightly and he was sad. He wanted to touch them. \n\nBut then he heard a voice. It was his mom. He looked around and saw a bright star. He smiled and said, \"Hi,\" she said. He was looking forward to his next adventure. \n\nThey kept walking until they came to the star. It sparkled and sparkled in the sun. \n\nThe little boy smiled and said, \"You're welcome"
+    },
+    {
+     "seed": 16,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a big dragon called Sammy. Sammy lived in a big, strong knight and he was always making sure to hold tight.\n\nOne day, Sammy brave knight put on his biggest sword and went on a mission. He wanted to find a magical knight so he could make a dragon.\n\n\"Let's go to a dragon!\" he said.\n\nSo, Sammy and the knight went on a journey, looking for the dragon. When they arrived, they found the dragon in a cave.\n\n\"Let's take the dragon!\" said Sammy.\n\nThe knight said, \"Okay! We'll find it!\"\n\nSo, Sammy and the knight and the dragon searched all around the cave until they could see the dragon.\n\n\"We worked hard!\" said Sammy.\n\nThe dragon replied, \"Thanks for helping me. I'm so kind and brave. Baddy will help you.\"\n\nAnd so, Sammy and the dragon began to"
+    },
+    {
+     "seed": 17,
+     "prompt": "Make up a bedtime story featuring a car.",
+     "topic": "car",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little car named Timmy. Timmy loved to play with his toys, it's engine. One day, Timmy's car broke and it made a loud noise. Timmy was scared and didn't know what to do.\n\nTimmy's mommy saw that he was upset and asked him what was wrong. Timmy told her that he was scared of getting broken his car. His mommy told him that he would fix it for his car. Timmy was happy that his car was safe, but he felt better.\n\nTimmy's mommy told him that if he ever saw something so big, he could be just as eager to play with his car. Timmy thought about it and decided to give him his car. He put it under his toy car, and played with his car happily. The end."
+    },
+    {
+     "seed": 18,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once there was a little girl who loved to ride. Every day, she would put on her new shoes and go outside to get a helmet.\n\nOne day, when she was riding her bike, she saw something very exciting - a train train was driving by. She was so excited that she couldn't stand in the train station. \n\nShe asked her mom if she could go and ride. Her mom said yes and so they went to the train station.\n\nWhen they got there, the train started to move in and out. There were cars and buses and a big train that was broken. Everyone got out of the train and they were so happy.\n\nThe train's owner was so proud of her for being brave and taking a ride in the train. It was a great time and they smiled, knowing that the train had helped her. \n\nThe train train was a happy and it could ride on its own for a long time."
+    },
+    {
+     "seed": 19,
+     "prompt": "Could you tell me a short tale about a kite?",
+     "topic": "kite",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a small boat. It was very small, and it was very interesting. One day, the small boat was sailing all around the house, when it saw something on the road. It was a big bell! The small boat was so excited, it wanted to go for a walk.\n\nSo, the small boat and the small boat decided to go and meet a kite. A big kite, a small kite and a little girl walked up to them's kite and asked if she could have it. The small kite said yes, and the young one walked around. Then, the small friend said, \"Yes!\" \n\nThe two friends enjoyed the string around the kite, and it was so much fun! The small boat was having so much fun that it was getting tired. So, they both decided to make a kite for the kite.\n\nThe little girl gave the kite a big hug and said, \"That was so much fun! Isn"
+    },
+    {
+     "seed": 20,
+     "prompt": "Make up a bedtime story featuring a cat.",
+     "topic": "cat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big and fluffy cat. The cat had big ears and was very fluffy. The cat had a big, comfy paw to feel the cat's bark. The cat liked to eat food all day long.\n\nOne day, the cat met a new friend, a small cat. The cat said, \"Hi, cat! Do you want some food?\" The cat said, \"Yes, please!\" The cat took a big, juicy snack and ate it.\n\nAs the cat tasted the snack, the cat was very tired. The cat said, \"I want to rest!\" The cat agreed and they slept under a big tree. The cat was very happy. They became good friends, and they all lived happily ever after."
+    },
+    {
+     "seed": 21,
+     "prompt": "Please write a story where a dog is the hero.",
+     "topic": "dog",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big dog. The dog was brown and had a long tail. He liked to play with the dog all day. One day, the dog was very scared. He ran to his owner and said, \"Help, help!\" His owner was a kind neighbor. The dog said, \"Help, help, please!\"\n\nThe neighbor was very kind. He gave the dog a big, yummy ice cream. The dog was very happy. He said, \"Thank you, little dog!\" His owner and the dog walked around the park.\n\nThe dog took the ice cream and ran to his owner. His owner was very happy. The dog said, \"Thank you, dog!\" The dog wagged his tail and barked happily. The dog knew that he could be kind and make friends. The end."
+    },
+    {
+     "seed": 22,
+     "prompt": "Make up a bedtime story featuring a moon.",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the woods near her house. One day, she heard a loud sound like a big truck in front of her house. She turned and saw an old man standing on the window. \n\n\"Hello, little girl. Do you want to play with me?\" asked the old man. \n\nLily was curious and said, \"Yes, please.\" \n\nThe old man said, \"Okay, but be careful. It's dangerous.\" \n\nLily nodded and played with her toys. She had so much fun that she forgot about the old man and went back to her mother. From that day on, Lily was careful not to burn her mom's house."
+    },
+    {
+     "seed": 23,
+     "prompt": "Make up a bedtime story featuring a dog.",
+     "topic": "dog",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "One day, a little dog named Spot went to the park with his owner, Max. Spot was very healthy and wagged his tail. He barked and wagged his tail.\n\nAt the park, Spot saw a big, yummy bone. He stopped and ate the bone. It was a little bone! Spot was very happy, he wagged his tail.\n\nAs Spot was eating the bone, he saw a little girl named Lucy. Lucy had a bone in her mouth. She was hungry too. They walked over and looked around. Spot wagged his tail and barked. They both wagged their tails and played together.\n\nAfter playing, Lily and Max went to the park. Spot had a big, juicy bone to eat. They played together all day, and Spot was very happy. And they all lived happily ever after."
+    },
+    {
+     "seed": 24,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time there was a train in the countryside. It was a big train and it had many windows. It was a train ride a train. The train loved to ride around the tracks.\n\nOne day when the train was driving, the train saw a man. The man was a driver of the train. He had a big blue car and he was very friendly. The man said, \"Hello, little train! What is your name?\" The train replied, \"My name is Timmy. I had a surprise for you.\"\n\nThe man said, \"I'm so happy to meet you. We will come to the station and see where the train goes.\" The train said, \"Thank you for the surprise.\" They went to the station and played with Timmy's toy train. From that day on, Timmy and Timmy would ride past the train often."
+    },
+    {
+     "seed": 25,
+     "prompt": "Make up a bedtime story featuring a cake.",
+     "topic": "cake",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Bob and Tim were best friends. They liked to eat cake every day. One day, they decided to make a cake for dinner. They put the cake in the oven and set the timer.\n\nBob had a big bowl of frosting and sprinkles on top. Tim's eyes lit up and he tried to make the cake with a smile. He said, \"Let's make the cake!\" But then, he made a funny face and itch started to move.\n\nBob said to Tim, \"Oh no! The cake has burned!\" But his face was still too late. The cake had burned and the cake disappeared. Tim was sad and said, \"I'm sorry, Mom.\" Tim's mom said, \"It's okay, it's just a big sister. Let's get you a turn left from the cake baking.\" So, they went back to the kitchen and sat on the table. The end."
+    },
+    {
+     "seed": 26,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Life was a little girl, who was very brave. She loved to explore her neighbourhood, but she was always very excited about her new adventure. \n\nOne day Life was feeling sad. She wasn't sure what to do. Then, her grandmother said, \"Always remember to be careful and explore your dreams.\"\n\nLife understood. She promised to take the dragon outside to see if it would go away. The dragon came closer and said, \"Ok, I will send it away\".\n\nDavid was happy. He went back to the dragon and saw that it was gone. Then he heard a voice.\n\nIt was an old man with a big bag of something inside. He handed it to the old woman, and said, \"Here, take this out of my arms. It's very tasty.\"\n\nLife was excited and said, \"Okay!\" She took the old man's hand and the old man gave him a big"
+    },
+    {
+     "seed": 27,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, shiny ball that was very special. It was full of shiny, round fur. The ball was big, round, round, and the other balls were very happy.\n\nOne day, the ball saw a little girl playing with a ball. The girl said, \"I want to play with you!\" The ball said, \"Yes!\" and they started playing a game.\n\nThey kicked each other and laughed. The little girl tried to get up, but the ball flew away. The little girl said, \"You cannot play with my ball, so I can be my friend!\" The ball felt sad and said, \"I am sad, I am sorry.\" The little girl smiled and said, \"Okay, I will help you.\"\n\nThe little girl took the ball and gave it to the little girl. The ball was happy again and said, \"Thank you, little ball. You are so kind.\""
+    },
+    {
+     "seed": 28,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a big princess who lived in a castle. She had a little crown that she loved very much. One day, she went for a walk and found a princess in a dark castle. She felt very lonely and lonely.\n\nThe princess asked the princess, \"Why are you all alone?\"\n\nThe princess replied, \"I can't met a princess. I was looking for a princess who lived in the sea.\"\n\nThe princess wanted to be his friends with the princess. They wanted to play together, but they could not find a princess. The princess asked the princess, \"Where is the princess?\"\n\nThe princess said, \"I can't find a princess.\"\n\nThe princess said, \"I will find a princess from the kingdom. So, we can hide in this castle!\"\n\nThe princess set to find a princess who found a princess. She put them on a dress and closed the king door for the princess. The princess was so"
+    },
+    {
+     "seed": 29,
+     "prompt": "Please write a story where a cake is the hero.",
+     "topic": "cake",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat a big cake. She would go to the store to buy her a piece of frosting. One day, Lily saw a big, shiny piece of cake in the kitchen. She wanted the cake very much, but it was too high for her.\n\nLily decided to ask her friend, Timmy, if he could help her. Timmy had a big bag of frozen cake. Lily gave the cake to Timmy.\n\nTimmy was very happy and gave it to Lily. He loved the cake very much. Then he went to the kitchen and brought a big cake. Lily's friend tookice to the cake and it was delicious.\n\nSuddenly, Lily's mom said, \"Lily, it's time for your cake. You can have it.\" Lily was sad, but she understood. They went back to the kitchen and waited for the cake to bake. It was a happy birthday cake and a"
+    },
+    {
+     "seed": 30,
+     "prompt": "Could you tell me a short tale about a rabbit?",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, a bunny and a rabbit were playing in the woods. They were friends, and Bob was hopping around a big, green mushroom. The rabbit was looking for the rabbit's new home.\n\n\"Hello, rabbit,\" said the rabbit. \"Is anyone there?\"\n\n\"Yes,\" said Rabbit. \"I'm looking for a new home. Do you want to find some snacks?\"\n\nThe rabbit was very excited. \"Yes,\" said the rabbit.\n\nSo the two of them hopped around the woods together. They looked for snacks and trees, but they couldn't find any.\n\nSuddenly, Rabbit spotted a rabbit. \"Come on rabbit,\" said Bob. \"But don't worry,\" said the rabbit. \"Be careful!\"\n\nThe rabbit climbed higher and higher. Rabbit and the rabbit went, laughing and playing all day. They were so happy that they had found the rabbit and the rabbit was happy."
+    },
+    {
+     "seed": 31,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time there was a little boy named Tim. Tim liked to play outside and skip. One day, he found a ball of ball and ran to the park. Tim ran to the ball and bounced it to the park. He was very happy to have a big ball.\n\nAs he played the ball, he saw a little girl named Sue. Sue was sad because she lost her favorite toy. Tim wanted to help Sue find her toy. He picked up the ball under his bed and gave it back to her.\n\nTim was so happy to have the toy back. He thanked the little girl and ran to the park. He played with the ball for hours. They ran and jumped and had lots of fun. Tim was no longer sad because he could not skip anymore."
+    },
+    {
+     "seed": 32,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big dragon. He was a lazy king and had a big sword. He wanted to fight other animals and play with his shield. So, he decided to make a big dragon from his dragon friends.\n\nHe went to a nearby town and took the dragon to their det places. He told them to go to the dragons and they didn't want him to. But then, a large dragon appeared with big eyes and a big, scary dragon! The dragon was very scary and the dragon started to cry.\n\nThe dragon felt sad and didn't know what to do. He felt lonely and scared. He wanted to be the dragon. So, he thought of a plan. He decided to move around the dragon, hoping to find a way to scare him away.\n\nThe dragon was so happy that he gave the dragon a big hug. The dragon was no longer scary and the dragon was happy. He never wanted to fight again."
+    },
+    {
+     "seed": 33,
+     "prompt": "Please write a story where a train is the hero.",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big and strong train. The train was a big, strong train that went out into the town. The train was very big and strong. The train was very happy when it saw the train go up in the sky. The train went up and down, over the hills, and over the tracks. The train was happy because it knew that the engine would lead the way. The train followed the train side, and they came to a big, red train. The train was happy to be on the train and they became friends. They played together and had lots of fun. And they lived happily ever after."
+    },
+    {
+     "seed": 34,
+     "prompt": "Make up a bedtime story featuring a flower.",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat jam and always asked her mom to help her when she grew up. One day, her mom asked her to help cut the jam in half. \n\nLily asked, \"Can you teach me how to do that?\" \n\n\"Sure, I will teach you how to make a flower,\" her mom replied. \n\nLily took out a ruler and started to attach a pretty flower. But she accidentally cut a flower on her finger and it started to bloom all over her hand. \n\n\"Oh no, my flower is cut out!\" Lily said again. \n\nHer mom smiled and said, \"Let's go home and wash them with a towel. And we can watch it with your hands.\" \n\nLily felt happy that she learned her lesson and learned that even when they make mistakes, things can happen when we act them."
+    },
+    {
+     "seed": 35,
+     "prompt": "Make up a bedtime story featuring a flower.",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Mia. Mia was very curious and wanted to know what the flower smelled. She looked around and saw that it was a luxury flower. She thought it looked like a flower. Mia wanted to know how it smelled soft and sweet.\n\nMia asked her mom, \"Can I take a bite?\" Her mom smiled and said, \"Sure, Mia. Let's get some peppers.\" They walked to the luxury flower and put it in the garden. Mia was very happy and ate all of the peppers. She felt so proud of herself for being so brave.\n\nLater that day, Mia and her mom went to the meadow to pick some peppers. Mia loved peppers. They were so colorful and pretty. Mia was so proud of herself for being brave and helping her mom make a new home. The end."
+    },
+    {
+     "seed": 36,
+     "prompt": "Make up a bedtime story featuring a tree.",
+     "topic": "tree",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "One day, a little girl named Lily went to the park with her mom. They saw a big tree with many branches. Lily was very happy because she looked at the tall tree with lots of leaves. She liked to climb the tree and eat leaves from the sky.\n\nAs they walked, they saw a little bird sitting on a branch. Lily said, \"Look, mom! A bird singing! I'm trying to get them down.\" Her mom said, \"Yes, Lily! Let's go get some fruit.\" They walked to the tree and sat under a big tree.\n\nAfter eating, Lily and her mom went home. Lily wanted to tell her the birds about the bird she saw in the tree. She said, \"Mommy, the birds are singing! Can we play with them?\" Her mom said, \"Of course, Lily. We can make it a new friend in the tree.\" Lily was excited and said, \"Yay! It was so much fun!\""
+    },
+    {
+     "seed": 37,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Badie was walking through the woods. She was brave and wanted to make the dragon even more. Suddenly, she heard a loud roar! It was a giant dragon!\n\nBadie was scared. She saw a big scary monster. It was big and scary, but she was brave. She held her mum's hand and they ran away.\n\nBadie was safe inside the cave. She was so scared she couldn't keep her safe.\n\nBadily, she was safe. She hugged her mum back and thanked her. She knew she had made a promise to be safe."
+    },
+    {
+     "seed": 38,
+     "prompt": "Make up a bedtime story featuring a car.",
+     "topic": "car",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once there was a small boy. The boy was driving his car and it went round and round. He was having so much fun he was driving. Suddenly, he saw a big car driving down the road. He looked around and saw a little car driving far away.\n\nThe little boy was scared and asked, \"Who is that?\" The car said, \"I am here to drive it. I want to go there.\" The little boy was scared and said, \"Don't be frightened, I can't do it!\" He felt brave, and they drove around the car. The car driving slow and the boy loved it.\n\nWhen the boy got to the park, he saw a big truck with a big, scary shadow. The boy said, \"Don't be scared, little car. We will be safe. The big car will come back.\" The little boy smiled and said, \"Ok, I'll go now.\" The little boy and the little car"
+    },
+    {
+     "seed": 39,
+     "prompt": "Make up a bedtime story featuring a rabbit.",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, strong bear. The rabbit loved to hop around and explore the meadow. One day, the rabbit hopped out of the meadow and saw a big, juicy apple! The rabbit was so happy! The rabbit hopped over to the apple and ate it with a big smile. Then, the rabbit started to hop around, hop and jump. The rabbit loved how delicious the apple was. They hopped and hopped until the sun went down. When it was time to go home, the rabbit hopped back to the rabbit's home. The rabbit was so happy that he had found the sweet apple that was just as fun. From then on, whenever the rabbit was feeling tired, he would hop back and play with his friends in the meadow."
+    },
+    {
+     "seed": 40,
+     "prompt": "Could you tell me a short tale about a flower?",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Molly loved to eat spicy food. She would go outside and pick it up for breakfast. She would put it in the jar with some butter on it. She could not wait to pick out some more.\n\nSoon, a little bee came out of the jar. It was so yummy! Molly's eyes sparkled in the sun. She wanted to taste the flower, so she decided to try and pick it.\n\nMolly took a beef and the bee ate it. It was so sweet and juicy. Molly was so happy that she kept eating the beef.\n\nWhen the beef was done, Molly was ready. She took one bite of the beef from the jar and smiled. She knew she'd found the sweet flower!"
+    },
+    {
+     "seed": 41,
+     "prompt": "Make up a bedtime story featuring a ball.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a big red ball named Dippy. Dippy loved to play ball with his friends. His ball had a shiny red ball. They would race each other to see who was faster. Dippy loved to play so much that he would hide behind a tree.\n\nOne day, Dippy's ball rolled far away from him. Dippy was scared and didn't know how to catch it. He looked around for help, but he couldn't find anything. He was very sad and missed his ball.\n\nDippy's friend, a little girl named Lily, came to cheer him up. \"Did you see my ball?\" asked Dippy. \"Yes, Dippy!\" she said. \"I missed you, Dippy.\" They both laughed and played all day. The red ball was over, but it was still available to rest. Dippy was very happy too, and his"
+    },
+    {
+     "seed": 42,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once there was a big moon in the sky. Both of her friends were very excited. The moon was big and bright.\n\nThe moon then showed Both of the other stars in the stars. Every night, they would go outside and fly. Biest children loved the moon.\n\nOne day, it started to rain. Both the sky was dark and the moon was getting colder. Both of them were so excited that they didn't want to leave.\n\nBut then something amazing happened. When the sky turned dark and the moon was gone! Both of them knew they should have done something special.\n\nWhen they returned home, they were very excited. They found a room full of stars, a big moon, a bright moon and a cool moon. Both of them were so excited and couldn't wait to explore."
+    },
+    {
+     "seed": 43,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "One day, a princess was playing her violin in her room. She used it to show the princess on the top. The princess was very happy and ran around the room. Suddenly, she saw a princess dressing dress. The princess wanted to wear the princess dress, but she remembered her mom telling her how to wear it. \n\nThe princess wore the princess dress and ran around the dress. She twirled and spun and twirled, as the princess dressed. Suddenly, she saw a big, scary monster. The princess was so scared that she ran away from the monster. \n\nThe princess ran and ran, but she couldn't get the princess. The princess never saw her bracelet again. The princess learned that sometimes, even if someone is a baby can make you feelings. The end."
+    },
+    {
+     "seed": 44,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": false,
+     "story": "Once upon a time, there was a small pig named Big Big Big Big Big Big Bun. Big Big Big Bun was very small and could run very fast. Every day, Big Big Bow and Big Big Big Big Big Big Big Big Bun Bun loved to eat sweet carrots. Big Big Big Bun always brought Bun Bun Bun Bun Baby Bun Bun Bun Bun Bun Bun Bun Bun Bun Bee Bell was the best of friends and would always ask Bun Bun Bun Bun Bee for the sweetest. Big Bun Bun Bun Bun Bun Bun Bun Ber Bunny was very happy because Bun Bun Big Bun Bun Bun Bun Bun Bun Bunny Bun Bunny had chat Bun Bun"
+    },
+    {
+     "seed": 45,
+     "prompt": "Please write a story where a car is the hero.",
+     "topic": "car",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to play with his toy cars. One day, Timmy decided to have a race with his favorite. He ran and laughed as he went.\n\nTimmy was having so much fun that he got too close to his mom. But then, he realized he had lost his favorite toy car. Timmy's mom tried to untie the car, but it was too tight. Timmy was sad and didn't know what to do.\n\nThen, his mom took him to the police station to give him a new toy car. Timmy was so happy and thanked his mom with a big smile. He was so relieved that he didn't lose his toy car with his mom anymore. From then on, Timmy wasn't afraid of the consequense."
+    },
+    {
+     "seed": 46,
+     "prompt": "Make up a bedtime story featuring a cat.",
+     "topic": "cat",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play with her toys and her favorite toy was a soft, fluffy cat. One day, Lily's cat, Mittens, came over to play and he said, \"Mittens, wow! Let's play!\"\n\nLily was so happy and said, \"Yes, Mittens, let's play catch!\" They chased each other around the house and even chased a cat. Lily was so happy to have a new furry friend with Mittens.\n\nBut when they were getting tired, Lily's mom called her inside for dinner. Lily was sad, but she was happy that she could play with Mittens. She brought Mittens back and said, \"Mittens, you are so cute and cute. Let's play catch together!\"\n\nMittens was happy and ran around the house playing with Mittens. Lily was so happy to have a new friend like Mittens. They had a great day together, with a fun"
+    },
+    {
+     "seed": 47,
+     "prompt": "Could you tell me a short tale about a boat?",
+     "topic": "boat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a ship. It was a big boat, and it had a big sail. The ship was very tight and it was very proud of itself. One day, the boat sailed to a boat. The boat sailed and sailed for a long time.\n\nSuddenly, the boat started to feel tired. The wind blew out the boat and the waves and the wind blew hard. The boat felt very tired, so it decided to go back home.\n\nWhen they arrived at the boat, they saw that the wind had hit it with a lot of noise. Suddenly, the boat realized they were being very noisy. The wind was blowing the boat out of the water and the waves were blowing too hard. But they were also careful and stayed cool. From that day on, the boat always made sure to keep the boat safe and sound."
+    },
+    {
+     "seed": 48,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a cute little boy named Timmy. Timmy loved to play with his ball and run around in the park. One day, he saw a little girl crying because she lost her toy. Timmy asked, \"Do you want to play with me?\" The little girl smiled and said, \"No, I don't. I have a surprise for you!\" \n\nTimmy was very happy and thanked the little girl. He gave her a big hug and said, \"Thank you for being my friend. Let's play with your basket and my new ball together.\" When they were playing, the little girl gave Timmy a big hug and asked, \"Timmy, I had a surprise for you.\" Timmy opened the basket and found the little girl's ball. She was so happy! Timmy thanked the little girl and said, \"I love waiting for you to come back to my old house!\" \n\nThe little girl smiled and said, \"I am so happy you had fun"
+    },
+    {
+     "seed": 49,
+     "prompt": "Please write a story where a bird is the hero.",
+     "topic": "bird",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "One day, a little bird named Ruby was flying in the forest. He saw a big, red pigeon and wanted to play with it. But when he got closer, he saw that the pigeon was not hurt. Ruby felt sad for the pigeon and wanted to be friends.\n\nWhen the pigeon got closer to the pigeon, It saw a little parrot sitting on the ground. The parrot asked the parrot, \"Can you help me find the pigeon?\" The parrot said, \"Yes, I can help you.\" The parrot led the little bird out of the trees and they found the ostrich's home.\n\nBut, the pigeon found a big cage and the little bird was scared. The dove said, \"Oh no! We need to be careful. What do we do?\" The bird said, \"We need to find some help from the cage.\" Ruby realized that he was wrong and wouldn't have any help. They flew around the jungle looking for shelter."
+    }
+   ]
+  },
+  "chat_ppo.pt": {
+   "perplexity": 6.676354142656414,
+   "topic_word": 0.44,
+   "finished": 0.98,
+   "repeats": 0.008912816157716844,
+   "length": 162.22,
+   "samples": [
+    {
+     "seed": 0,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": true,
+     "finished": false,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the forest. One day, she saw a beautiful moon and picked it up to see it. She held the moon in her hand and started to fly in the air. She felt so happy and free. \n\nSuddenly, a big gust of wind blew Lily and she got very dizzy. She didn't like flying or twirling up. She started to shiver and didn't know why it was so scary. \n\nHer mommy saw her below and said, \"Don't worry, Lily. I'll help you. Just protect Lily and put her in your pocket.\" Lily followed her mommy to a nearby forest where they were safe. \n\nAs they were walking, Lily felt a gentle wind around her face. She didn't want to get too dizzy, but her mommy encouraged her to hold on to keep her breath. They flew around and Lily felt safe and warm."
+    },
+    {
+     "seed": 1,
+     "prompt": "Could you tell me a short tale about a cat?",
+     "topic": "cat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little mouse named Timmy. One day, Timmy was playing in the kitchen. He saw a big jar of candy on the table. He wanted to eat all of it, but it was too heavy for him. \n\nTimmy asked his mom for help. \"Can you help me open the jar?\" he asked. His mom said, \"Sure, you can take the jar.\" Timmy carefully lifted the jar up and tried to put the candy inside. \n\nSuddenly, a big cat came to Timmy and said, \"Hello, little mouse! Do you want to open the jar too?\" Timmy was scared but he trusted his mom. So they opened the jar together and saw a little mouse stuck inside. Timmy was so grateful. He thanked his mom and hugged him."
+    },
+    {
+     "seed": 2,
+     "prompt": "Could you tell me a short tale about a kite?",
+     "topic": "kite",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a big garden. In the garden lived a little bird. The bird liked to fly high in the sky. One day, a big storm came. The wind was very strong and the bird was scared. \n\nThe bird flew away, but the bird did not go with a plan. The wind blew harder and the rain started to pour. The bird was so scared that it kept flying. \n\nBut then, a big wind blew hard and the bird felt very strong. It was very high! The bird could not fly anymore. The bird was sad, but it was still not sure how to help the bird. \n\nThe bird and the bird became friends. They would race together in the garden every day. The nest was always very happy and safe. The bird was happy, because it had a friend to help, even when the storm was hard."
+    },
+    {
+     "seed": 3,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a lion who was very happy. He loved to clap around in the jungle. One day, he met a little bunny who was feeling very embarrassed. He asked the rabbit, \"What's wrong doing, little bunny?\"\n\nThe bunny replied, \"My favorite toy is a teddy bear. I can't clap myself.\"\n\nThe bunny smiled and said, \"Don't worry, I'll clap your hands together!\"\n\nThe bear clapped his hands together and soon he was laughing. The bunny was having so much fun that he started to clap too. He clapped his hands together and they both enjoyed the big clapped.\n\nHe was the happiest animal in the jungle for his animal friends to join. So the bunny clapped his hands together and even danced back to the forest."
+    },
+    {
+     "seed": 4,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to ride her bike around the car. One day, she saw that her dad had a big surprise waiting for her. Lily was so happy and wanted to celebrate with her new friend.\n\nWhen Lily arrived at the park, she saw a toy she really wanted, but she had no money. She was sad because she didn't wear her bike. But then, her mom told her it was okay to take care of her helmet.\n\nLily took a deep breath and walked around the park. She learned how to ride her bike, and how to ride on it. She felt great without a feeling and took off her helmet. It was a fun day for Lily to ride her bike."
+    },
+    {
+     "seed": 5,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to play with his toys and eat cookies. One day, Timmy's mom asked him to make a cake with some dough. Timmy was excited to help his mom mix a cake into the cake.\n\nAfter they finished mixing, Timmy's dad asked him to help cook a cake. Timmy started to mix the mix, but he accidentally dropped the dough on the floor. His dad told him it was dangerous. Timmy felt bad and said sorry to his dad.\n\nAfter they made the cake together, Timmy felt better knowing he was not hurt anymore. From then on, Timmy always made sure to make sure to always check if it was still in the kitchen."
+    },
+    {
+     "seed": 6,
+     "prompt": "Please write a story where a kite is the hero.",
+     "topic": "kite",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved playing outside with his friends. One day, Timmy and his friends were playing catch with a ball. Timmy's favorite ball was hidden behind a bush. \n\nSuddenly, Timmy's friend had an idea. He told Timmy to be honest and not to be sad. Timmy took a deep breath and said he could play catch with a ball instead. \n\nFrom that day on, Timmy promised to be honest and honest about what he had. His friends agreed and they played catch with the ball together. Timmy learned that even if things seem hard, they can still be found in a way."
+    },
+    {
+     "seed": 7,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat olives in the garden. One day, she was playing with her favorite spoon when she accidentally dropped it on the ground. She was very sad because her spoon hurt a lot.\n\nHer mom noticed that Lily's spoon was broken and said, \"Oh no, Lily. Let me fix it.\" Her mom helped her and they started to make the spoon together. As they were working, they noticed that the spoon was broken and needed help to fixed.\n\nAs they walked back to the house, they saw that the spoon was broken and needed to be fixed. Lily said, \"Thank you, Mommy, I saved the spoon. I'm so grateful for the help.\" Her mom smiled and said, \"It's okay Lily, I'm happy to help. We all learn that we should always listen to our friends and help when they feel upset and that's okay.\""
+    },
+    {
+     "seed": 8,
+     "prompt": "Make up a bedtime story featuring a tree.",
+     "topic": "tree",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. He loved to play with his toys. One day, Timmy's mom took him to the park. Timmy was so excited to play.\n\nAs he was playing, he noticed a bird on a flower. The bird was flying in the sky. Timmy wanted to catch the bird, but he didn't know how. He asked his mom for help. She came up with an idea. She told Timmy to follow her mom's advice and he never caught the bird.\n\nTimmy was happy to hear that. He followed the bird until he saw a big tree with lots of branches. He ran to the top and carefully caught the bird with his mouth. Timmy was so happy to have a new friend and he thanked his mom."
+    },
+    {
+     "seed": 9,
+     "prompt": "Make up a bedtime story featuring a boat.",
+     "topic": "boat",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play in her room with her toys. One day, her mom made her a sandwich with cheese and cheese. Lily was so happy and ate the sandwich right away.\n\nSuddenly, Lily's mom called out to her \"Stop!\" Lily said, \"I'm sorry. I shouldn't have done your homework.\" Her mom hugged her and said, \"It's okay to feel sad sometimes. I'll be back to you.\"\n\nLily felt better and gave her mom a big hug. When her mom saw the sandwich, she saw that Lily's tummy hurt and she was happy again. Her mom said, \"It's okay, sweetie. I'll have some cheese and some milk.\" Lily smiled and went back to playing and eating his lunch."
+    },
+    {
+     "seed": 10,
+     "prompt": "Please write a story where a robot is the hero.",
+     "topic": "robot",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play with her toys, especially her teddy bear. One day, Lily was playing with her teddy bear when she accidentally dropped it. She started to cry because she didn't want to share her teddy bear. \n\nHer mom saw how upset she was and wanted to help, so she picked up Lily and brought her a new teddy bear to play with. She brought the teddy bear with her and they played together. They used a gentle way to get back to admire her things. \n\nLily and her teddy bear were happy and content. She hugged her teddy bear tightly and thanked her mom for helping her. From that day on, Lily made sure to always look out for her teddy bear and putting it on her bed before heading to bed."
+    },
+    {
+     "seed": 11,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved playing outside and pick flowers. One day, he found a flower that he found on a flower. \n\nTimmy wanted to keep the flower, but his mommy said no and they started to weigh it. Timmy was sad and didn't know what to do. Suddenly, a kind mommy came over and saw the flower. She asked Timmy why he was weighing the flower. Timmy said that he wanted to help. \n\nMommy went to the store and bought the flower. They took it home and Timmy was so happy and proud of himself. He showed his mommy the flower and they both smiled. From that day on, Timmy made sure to check the flower before going back to playing outside."
+    },
+    {
+     "seed": 12,
+     "prompt": "Make up a bedtime story featuring a ball.",
+     "topic": "ball",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play with her toys, especially in her hands. One day, her mommy asked her to help feed the mop. Lily was scared, but she knew it was just a hotel.\n\nMommy helped her clean the mop with a big towel. Lily helped pour the water into a big bowl and put it on the floor. She felt happy and proud of herself for being brave.\n\nAfter dinner, Lily's mommy asked her to help with the mop. Lily thought for a minute and then helped her mommy carry the mop onto a chair. Her mommy was proud of her for being brave and helping her. From that day on, Lily always asked for helping out when she needed it."
+    },
+    {
+     "seed": 13,
+     "prompt": "Could you tell me a short tale about a dragon?",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play with her toys and her mommy gave her a big squeeze. One day, Lily's mommy took her on a walk and saw a dragon. She pointed at it and said, \"Look, Mommy! It's so big!\" \n\nLily was amazed and asked, \"Can I touch it?\" \n\nMommy smiled and replied, \"Sure, but be careful not to get too close on your face.\" \n\nLily followed the dragon for a while and finally got to touch it. The dragon was very strong and Lily couldn't touch it. She watched it go and it flew into the clouds. From then on, whenever she was scared, she would call out for her mommy and daddy to come. \n\nShe loved the dragon and played with it every day. The dragon was her favorite toy, and Lily was happy."
+    },
+    {
+     "seed": 14,
+     "prompt": "Please write a story where a rabbit is the hero.",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little rabbit named Benny. Benny loved to eat carrots, but he was very hungry. He went to his friend, a rabbit named Benny. Benny was hungry and wanted to eat his carrots, but Benny wanted to eat it. Benny said no and Timmy got very angry.\n\nSuddenly, Benny tripped and his thumb hurt a lot. Benny cried and ran to his mommy. Her mommy hugged him and said, \"It's okay, Benny. Let's make another loud noises and make them feel better.\" So, they made another faces better and continued to eat their carrots together. Benny was so happy he had a friend like Benny."
+    },
+    {
+     "seed": 15,
+     "prompt": "Could you tell me a short tale about a star?",
+     "topic": "star",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved going to the grocery store with his mommy. They went to the store and Timmy saw a big jar of red fruit. He wanted it so badly, but his mommy said he could have it before dinner.\n\nTimmy was sad and didn't know what to do. He asked his mommy if he could have the jar. She said he needed to eat it, but Timmy didn't want it. He was so happy that he ate the fruit. When he was finished, he was so happy and grateful.\n\nSuddenly, he felt very sleepy. But he looked up to the jar and it was still there. He didn't look around, but it was a scary idea to try. He opened up the jar and started to eat his fruit. Timmy was so happy and he thanked his mommy. And he never got too lazy to eat apples again."
+    },
+    {
+     "seed": 16,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, fat dragon. He lived in a big, swalley all day long. One day, he was out walking through the woods when he saw a little mouse.\n\n\"Hello, little mouse!\" said the dragon. \"Why are you so big?\"\n\n\"I'm not sure,\" said the mouse. \"I'm just looking for a friend to hide.\"\n\n\"Why don't you stay here, little mouse?\" asked the mouse.\n\nThe dragon replied, \"I'm not scary at all. There's any animal you can find me and I'll find you home.\"\n\nThe mouse was very happy and thanked the dragon. From that day on, the dragon was always looking for the mouse."
+    },
+    {
+     "seed": 17,
+     "prompt": "Make up a bedtime story featuring a car.",
+     "topic": "car",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. One day, she went to the park with her mom. They saw a big slide and Lily wanted to go down it. She climbed up the ladder and went down the slide. \n\nAs they got up, Lily's mom called her to go down the slide. While they were running, Lily started to sneeze. She didn't like to get down because she was getting higher and she was getting dizzy. \n\nSuddenly, her mom called out to her, \"Lily, I'm sorry, I'm just playing in your seats.\" Lily replied, \"Don't worry, I'll help you.\" So, she asked her mom if she would feel better, and her mom gave her a big hug. Lily fell down the slide and felt all better. From that day on, she always made sure to check her seats before she went down."
+    },
+    {
+     "seed": 18,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big train. The train was very fast, but it could not stop. It was a happy train because it was going on a train ride. The train started to ride on the train, but it was very fast. The train was scared and didn't know what to do. The train stayed by a car and tried to ride the train. But it was too fast, and it blew away the train. The train was sad and stuck. But then, a kind and kind dog saw the train and helped it. They climbed on the train and won! The train was so happy and grateful. Now, the train was very happy and ready to play."
+    },
+    {
+     "seed": 19,
+     "prompt": "Could you tell me a short tale about a kite?",
+     "topic": "kite",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy. He was very good at walking in the park when he suddenly noticed a big metal stick floating in the sky. \n\nThe little boy was so excited, he started to walk up the hill. He soon noticed that the stick had poked a big, red ink in the ground. He picked it up and started to poke with it. \n\nSuddenly, the stick started rolling away. The little boy was scared, but he knew he had to leave the stick. He ran over to his mother and hugged her tight. \n\nHis mother smiled. She said, \"It's ok to poke the stick. You can keep the stick and be nice if you don't want it.\" \n\nThe little boy felt relieved, and his mother praised him for being such a good friend. He went home with a smile on his face."
+    },
+    {
+     "seed": 20,
+     "prompt": "Make up a bedtime story featuring a cat.",
+     "topic": "cat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat soup. She would always ask her mom and dad to make spaghetti for cooking.\n\nOne day, Lily's mom asked her to help cook some spaghetti. Lily was happy to help and started to prepare the spaghetti for her dinner. She cut the spaghetti and cut off it.\n\nAfter dinner, Lily saw a big, juicy cat next to her. She wanted to eat it, but her mom told her to be careful. The cat bit her and ate the spaghetti.\n\nLily was sad because she loved spaghetti. She started to cry because she didn't like eating the spaghetti. Her mom tried to comfort her, but it was too late. The cat ate her spaghetti and kept on eating. The end."
+    },
+    {
+     "seed": 21,
+     "prompt": "Please write a story where a dog is the hero.",
+     "topic": "dog",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little dog named Max. Max loved to play and run around all day. One day, Max saw a bug crawling on a leaf. Max thought it was so cool that he wanted to keep it. So, he picked up the bug and showed it to his owner. \n\nAs Max was walking, he saw a little girl crying. She went to Max and asked for help. Max told her that he wanted to help her but he was too scared to ask for help. The little girl and Max asked Max to help her by bringing the bug back of the leaf to the little girl. \n\nMax was so happy that he thanked Lily for being so kind. From that day on, Max and Lily became the best of friends."
+    },
+    {
+     "seed": 22,
+     "prompt": "Make up a bedtime story featuring a moon.",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the woods near her house. One day, she heard a loud sound like a big truck in front of her house. She turned and saw an old man standing on the window. \n\n\"Hello, little girl. Do you want to play with me?\" asked the old man. \n\nLily was so excited to play with the old man. \"I am a doctor. I know to talk to my parents,\" she said. \n\nThe old man smiled. \"Don't worry, I'll help you. Come with me and I'll take you to the nearest store. Let's get you some water and I'll make you a new friend like you.\" \n\nLily was amazed by the old man's kind words and thanked him. From that day on, Lily knew what her mom asked for."
+    },
+    {
+     "seed": 23,
+     "prompt": "Make up a bedtime story featuring a dog.",
+     "topic": "dog",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "One day, a little dog named Spot found a shiny coin on the ground. He picked it up and showed it to his friend, a little girl named Lily. She asked, \"What is this?\" Spot barked again and said, \"It's a coin.\"\n\nLily decided to make a coin for her mom. She was very careful not to make a hole. She waited for her mom to come home and see it. When she came back, she found that the coin was broken. She looked at Spot and said, \"Oh, no! My coin is broken and I can't play here anymore.\"\n\nSpot felt bad and left. He thought he did not want to play with Lily anymore. He went back to playing in the park with Lily. They were both happy and had lots of fun again."
+    },
+    {
+     "seed": 24,
+     "prompt": "Could you tell me a short tale about a train?",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a boy named Timmy. Timmy loved to play with his toy train. He would take it everywhere because it was a fun toy. One day, Timmy's friend Billy came over to play. Billy wanted to play with Timmy's engine. Timmy was happy and they started to play together.\n\nSuddenly, Timmy's toy train broke. Timmy felt sad and Timmy felt bad. He wanted to play with it too, but Billy didn't want to share. Timmy was persistent and tried to help Billy feel better.\n\nThe next day, Timmy's mommy found out that Timmy's engine was broken and he had to fix it. Timmy was so happy and grateful to his mommy for helping him. They hugged and Timmy felt much better. From that day on, Timmy made sure to always be persistent and take care of his engine."
+    },
+    {
+     "seed": 25,
+     "prompt": "Make up a bedtime story featuring a cake.",
+     "topic": "cake",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat pasta for dinner. One day, her mommy made pasta for spaghetti for dinner. Lily was so happy and happy.\n\nAfter dinner, Lily's tummy hurt and she realized she was spoiled. Her mommy took her to the doctor and said they needed to take a nap. The doctor gave Lily a bowl of spaghetti and Lily was happy again.\n\nAs they drank their pasta, Lily started to feel sick. She knew her mommy would be worried and needed to rest. Her mommy took her to a shelter where she was able to relax and sound. Lily felt better and felt better. \n\nFrom that day on, Lily always made sure to take a nap in a safe place. She never forgot the milk and her mommy was happy to wear her favorite. The end."
+    },
+    {
+     "seed": 26,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little bird named Tweetie. Tweetie loved to fly around and see all the things. One day, Tweetie saw a big mountain with many clouds and a big mountain. Tweetie was so happy!\n\nSuddenly, Tweetie saw a shiny penny on the mountain. Tweetie thought it might be a toy for her, so she flew down and picked it up with her beak. But the penny was too tight and couldn't make it. Tweetie felt sad for the penny and wanted to help.\n\nTweetie saw one of its pennyies and flew away to find her friend. Tweetie flew around the mountain with her rod and found a big, strong penny. She was so happy that she could finally reach the penny. From that day on, Tweetie was known as the little pigeon who was able to fly over the mountain where she kept it."
+    },
+    {
+     "seed": 27,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, hairy dog named Max. Max loved to play with his friends in the park. One day, Max's friends told him that they were going to catch a ball. Max didn't want to do it, but he remembered he had a special idea.\n\nMax said, \"Let's try to catch the ball and see who can roll it fast!\" His friends agreed and they tried to catch the ball. But Max was scared, but Max didn't give up.\n\nSo, the ball went up and down, and Max caught it. He caught it and he ate it happily. From that day on, Max and his friends always checked the same spot when they tried to catch the ball."
+    },
+    {
+     "seed": 28,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a big, hairy dog named Max. Max was very intelligent and loved to play. One day, Max's owner went for a walk and they saw a bird on a branch. Max's owner told him to be careful because the branch was fragile and it needed to be used.\n\nAs they continued walking, Max saw a little girl who was crying. She chased the little girl with her paw until she fell down and landed on the ground. Max felt embarrassed and started to cry.\n\nThe little girl saw Max crying and asked him if he was okay. Max said he was okay and that he could help. He gently picked up the little girl and gave her a little kiss. The little girl was so happy and thanked Max. From then on, Max and the little girl became the best of friends."
+    },
+    {
+     "seed": 29,
+     "prompt": "Please write a story where a cake is the hero.",
+     "topic": "cake",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside and picking flowers in the garden. One day, she found a jar of wine in the garden. She was so happy and started to scatter it on the grass.\n\nSuddenly, she heard a loud noise coming from the garden. She ran to see what it was and saw that it was a thief! The thief had caught the little girl with the wine and he had stolen it.\n\nLily was sad for the thief and gave it back to the thief. The thief was very sad because he didn't know what to do. But then, the thief came back and grabbed the little girl back. He chased after her until he was full and ran away. Lily was very sad and wished she hadn't let the thief come in."
+    },
+    {
+     "seed": 30,
+     "prompt": "Could you tell me a short tale about a rabbit?",
+     "topic": "rabbit",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the backyard. One day, Lily went to the store to buy some fruits. She saw a long, sharp rock and decided to climb it. \n\nLily walked to the rock and got to check on her finger. She saw that the sharp rock was cracking in half. \n\nLily asked the rock, \"Can I help you?\" \n\nThe rock didn't move anymore. It fell down and broke into many pieces. Lily was sad because she couldn't get a shiny rock anymore. \n\nBut then, Lily's mom came in and saw what happened. She said, \"It's okay, Lily. The rock is cracked and I can't lift it.\" \n\nLily was happy and thanked her mom. They continued to play in the backyard, and Lily learned that it's okay to ask for help when you need it."
+    },
+    {
+     "seed": 31,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time there was a little girl named Emily. She was always very curious and liked to explore. One day, she was walking in the park when she saw a big, scary dog. She was scared and started to cry.\n\nHer mom heard her and ran over to her. She tried to explain why the dog was so scared, but she was still scared.\n\nEmily's mom explained that the dog was just trying to walk. She explained that it was friendly and it was a friendly dog. The dog wagged his tail and Emily felt the dog stop. She was happy that the dog was friendly.\n\nAfter that day on she looked for the dog and she was still scared. She was a very friendly dog who always brought her with her."
+    },
+    {
+     "seed": 32,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a big, strong lion named Leo. Leo loved to run and jump in the jungle. One day, Leo felt very lonely because he wanted to explore the world. He saw a little girl named Lily crying, so she asked him why he was sad.\n\n\"I lost my toy and now I lost my toy,\" said Lily. \"I don't know how to find it,\" said Leo. \"Don't worry, I'll help you find it!\"\n\nThey looked and looked all around the forest. Leo saw many animals at the forest. They saw lions, hoo-boo, and even even a little mouse. Leo was so happy to have a new toy. From that day on, Leo learned that sometimes things that seem scary can be very fun to feel and face."
+    },
+    {
+     "seed": 33,
+     "prompt": "Please write a story where a train is the hero.",
+     "topic": "train",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a boy named Timmy. Timmy loved watching TV. He had a big red TV that kept his favorite cartoons. One day, Timmy's mommy told him it was time to get a new TV. Timmy was happy because he loved his new TV.\n\nAs Timmy was walking, he saw his toy train outside. He wanted to ride it. His mommy said yes and they rode the train inside. Timmy's mommy told him to be careful and not come too fast.\n\nThey passed a picture on the train and Timmy saw a race. He had never seen a race a train before. He was so happy that he started to slide down the fastest. The train finally won and Timmy felt proud of himself. He couldn't wait to see his new TV show again."
+    },
+    {
+     "seed": 34,
+     "prompt": "Make up a bedtime story featuring a flower.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat candy and always asked her mommy to make her some more. One day, her mommy asked her to help cooking dinner. Lily was very excited and asked her mommy to help.\n\nWhen mommy put the food in the pot, Lily watched as the cook turned on. Suddenly, the stove started to burn. Lily was scared and started to cry. Her mommy tried to make it better, but it was too late.\n\nSuddenly, a big storm came and Lily's mommy was hurt. But she was sad that she didn't finish her dinner again."
+    },
+    {
+     "seed": 35,
+     "prompt": "Make up a bedtime story featuring a flower.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She was very curious and wanted to know what was on the other side of the world. One day, she went to the park with her mommy. She saw a big, colorful butterfly and wanted to catch it. But the butterfly flew away, and Lily started to worry. She didn't want to be caught and decided to run after it, but she remembered not to worry about getting caught by a bunny. She caught the butterfly and made it back to Lily. From that day on, Lily and the butterfly became the best of friends and went on many adventures together."
+    },
+    {
+     "seed": 36,
+     "prompt": "Make up a bedtime story featuring a tree.",
+     "topic": "tree",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She had a teddy bear named Teddy. Teddy was a kind and friendly dog named Max. One day, Lily and Teddy went to the park to play. They were having so much fun, but then Lily accidentally knocked Teddy off the chair. Teddy started to cry because he thought the chair was scary and couldn't get up. \n\nLily's mom noticed she was sad and asked him what was wrong. Lily told him that she didn't mean to break Teddy and could cry. Her mom told her not to worry and that it was okay to break things because she was afraid it must have been dangerous. From then on, Lily and Teddy played together every day."
+    },
+    {
+     "seed": 37,
+     "prompt": "Make up a bedtime story featuring a dragon.",
+     "topic": "dragon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to walk around his house. One day, Timmy was walking through the woods when he saw a big black cat. The cat was barking a lot and Timmy had to run away. But the cat chased him and kept barking. Timmy was scared and tried to run away, but he couldn't. The cat chased him until it was too late. Timmy had to go home so he could not stay away from the cat. The end."
+    },
+    {
+     "seed": 38,
+     "prompt": "Make up a bedtime story featuring a car.",
+     "topic": "car",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once there was a little girl. She was walking through the park and feeling very excited. She noticed something was wrong - it was a big red car. She asked her mom, \"What's wrong, Mommy?\"\n\nHer mom said, \"I'm sorry, sweetheart. I just want to go for a walk.\"\n\nSo they started walking to the car. Suddenly the car started to move! There was a loud noise and the little girl got scared. She hugged her mom tight, which made her laugh.\n\nHer mom said, \"It's okay, sweetheart. Just be careful.\"\n\nThe little girl looked up at the big red car. She saw something funny. It was a big brown, furry dog. The dog was trying to catch the little girl.\n\nThe little girl was so happy that she had helped her mom. After a few days, they went to the park. The little girl was so happy and she felt really good too."
+    },
+    {
+     "seed": 39,
+     "prompt": "Make up a bedtime story featuring a rabbit.",
+     "topic": "rabbit",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to eat tasty food. One day, she went to the farm to see what she wanted to eat. She saw a big, brown frog with a big, red mouth. She wanted to eat the frog, but her mom said no. Lily started to cry and she wanted to eat the frog.\n\nLater that day, Lily's mom took her to the zoo to see the frog. She saw lots of animals, but she didn't know they were hungry. She saw some animals and asked if they were hungry. The monkey was patient and waited patiently. Finally, a little rabbit came closer to see the lion. Lily was so happy and thanked her mom for helping her. From that day on, Lily knew that she could always count on her friends to help."
+    },
+    {
+     "seed": 40,
+     "prompt": "Could you tell me a short tale about a flower?",
+     "topic": "flower",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big, ugly bug on the ground. She didn't like it when it was so ugly.\n\nLily got scared and ran away. She didn't want to go back to her home. But then, she saw a lighting flower in the ground! She picked it up and saw that it was the perfect size in the sky.\n\nLily went home and told her mom the flower was just for her. Her mom was proud of her and gave her a big hug. From that day on, Lily always made sure to wear the flower when she went outside to play."
+    },
+    {
+     "seed": 41,
+     "prompt": "Make up a bedtime story featuring a ball.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a big, round ball. The ball loved to play with its friends. One day, the ball was rolling over a fence too. The ball rolled over a fence and knocked down some other balls. The ball was very happy to see the ball roll again. The ball said, \"Thank you, friend! You are very kind.\" The ball was happy that the ball could play with its friends. \n\nAfter the ball rolled away, it went back to its spot to sleep. The ball said goodbye to its friends and fell asleep. From that day on, the ball and its friends were the best of friends."
+    },
+    {
+     "seed": 42,
+     "prompt": "Could you tell me a short tale about a moon?",
+     "topic": "moon",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to play in the garden with his toys. One day, Timmy's mom brought him a big box. Timmy was very happy to see it. He loved his toy truck. \n\nAs Timmy was playing with his toys, he accidentally broke it. He was very sad. His mom helped him look at the mess and they cleaned up the mess. Timmy felt a little sad, but then he saw a big, red truck nearby. \n\nTimmy's mom came to see what happened and saw the truck too. She told Timmy to be more careful with animals. Timmy was happy that he didn't break the truck. From that day on, Timmy listened to his mom and always made sure he was safe."
+    },
+    {
+     "seed": 43,
+     "prompt": "Please write a story where a princess is the hero.",
+     "topic": "princess",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "One day, a little girl named Sue found a big, shiny button on the ground. She liked to press the button to make it work. The button made a loud noise that made a loud noise. Sue was scared and tried to turn the button on.\n\nSue's mom saw the button and said, \"No, Sue. Nobody can turn it off.\" Sue was sad, but she listened to her mom and did the button.\n\nSue and her mom watched the button again. They saw a big spider on the wall. Sue's mom said, \"It's okay, we can fix the button.\" Sue was happy and she helped her mom fix the spider. They went back to have a fun day together."
+    },
+    {
+     "seed": 44,
+     "prompt": "Please write a story where a flower is the hero.",
+     "topic": "flower",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to bake with her mommy. One day, her mommy cooked a big cake with a spoon. \n\nAfter the cake, Lily went to play outside with her friends. She saw a little bird who was hurt. She asked if she could help. \n\n\"Sure, little bird,\" said Lily. \"I will help you.\" \n\nSo, they went to the bird's nest and sat in a tree branch. The bird looked hurt and looked at them. Lily was happy that she could help the little bird. \n\nAfter that, they made a new nest for the little bird to eat. Lily and her friends were happy because the bird was okay and they thanked the little bird."
+    },
+    {
+     "seed": 45,
+     "prompt": "Please write a story where a car is the hero.",
+     "topic": "car",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little boy named Timmy. Timmy loved to play with his toys, especially his toy car. One day, Timmy's mom brought home a toy car that was broken. Timmy was so happy and he played with it all day.\n\nBut then, Timmy's little sister came in and accidentally broke the car. Timmy was sad because he really wanted the car. But his mom said, \"Don't worry, we can fix it more about fixing the car.\"\n\nTimmy was happy again and they fixed the broken car. When they were finished, Timmy went to play with his toy car, but his little sister accidentally broke something. She wanted to go back to Timmy's room and show him what happened. Timmy was so happy and said, \"Thanks, Mommy! I'm sorry my toy car was broken now.\""
+    },
+    {
+     "seed": 46,
+     "prompt": "Make up a bedtime story featuring a cat.",
+     "topic": "cat",
+     "topic_word_present": false,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved playing with clay. One day, she was playing with her clay friend when she accidentally spilled it on the floor. \n\n\"Oh no! My clay is broken!,\" her mom said.\n\nLily felt sad and asked her mom, \"What happened, Mommy?\" \n\n\"I'm sorry, I just played with clay,\" said her mom.\n\nLily's mom put some clay on the clay and said, \"See, we can still make something new.\" \n\nLily was so happy that her clay was safe. She hugged her mom and said, \"Thanks, Mommy. I love making clay now.\""
+    },
+    {
+     "seed": 47,
+     "prompt": "Could you tell me a short tale about a boat?",
+     "topic": "boat",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She had a toy sail and loved to sail in the bathtub. One day, she saw a thief in the water and got angry. She shouted at the thief and told her what to do.\n\nThe thief went to his house to give the thief some food. Lily was sad because she lost her toy sail and her toy sail was gone. She felt bad for the thief and wished she had nibbled on her sail.\n\nLater that day, Lily's mom asked her what happened. Lily told her that she didn't know how to get her toy sail. Her mom said that she needed to send her a toy boat to live in the bathtub. Lily went to the bathtub to get her toy sail and went back to her house. She was happy that she found a toy sail that helped her get better."
+    },
+    {
+     "seed": 48,
+     "prompt": "Please write a story where a ball is the hero.",
+     "topic": "ball",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "Once upon a time, there was a little girl named Lily. She loved to play outside in the park. One day, she saw a big, scary dog. The dog was scary and Lily felt scared. She didn't know what to do.\n\n\"Don't be scared,\" said Lily's mom. \"Let's go inside and look for my ball!\" Lily said. They went inside and found a little girl who was playing with her ball. She showed the dog at the park and they played again.\n\nAfter they were done playing, the dog was happy. Lily and the dog played together, chasing and having fun. They learned that it's okay to be scared sometimes and that it's important to be safe."
+    },
+    {
+     "seed": 49,
+     "prompt": "Please write a story where a bird is the hero.",
+     "topic": "bird",
+     "topic_word_present": true,
+     "finished": true,
+     "story": "One day, a little boy named Tim went for a walk in the forest. He saw a big tree with a rope in it. Tim wanted to pick the rope, but he was scared. He asked his friend, the bird, to help him.\n\nTim told the bird, \"I want to be a hero,\" and the bird said, \"I am a hero. You can be brave.\" Tim smiled and felt a little better.\n\nAt the end of the day, Tim and the bird went home. They were sad because they didn't want to. They hugged each other and said sorry. Tim and the bird were happy that they could help they make a new friend."
+    }
+   ]
+  }
+ }
+}
